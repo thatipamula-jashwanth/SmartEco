@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://smartknn.github.io/sitemap.xml
+Sitemap: https://thatipamula-jashwanth.github.io/SmartEco/sitemap.xml
