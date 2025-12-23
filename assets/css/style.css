@@ -1,0 +1,188 @@
+/* Global */
+body {
+  padding-top: 80px;
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Navbar hover effect */
+.nav-link:hover {
+  color: #0058cc !important;
+}
+
+/* Hero */
+.hero-section {
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  animation: fadeIn 0.9s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Canvas background for KNN animation */
+#knn-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 1;
+}
+
+/* Glass floating hero card */
+.glass-hero {
+  position: relative;
+  z-index: 2;
+  padding: 50px 28px;
+  border-radius: 22px;
+  backdrop-filter: blur(14px);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.25);
+  transition: all 0.35s ease;
+  animation: glassPulse 4s infinite ease-in-out;
+}
+
+/* Subtle pulse border animation */
+@keyframes glassPulse {
+  0% { border-color: rgba(255,255,255,0.18); }
+  50% { border-color: rgba(255,255,255,0.42); }
+  100% { border-color: rgba(255,255,255,0.18); }
+}
+
+/* ⭐ Light-tracking glow (follows mouse) */
+.glass-hero::before {
+  content: "";
+  position: absolute;
+  top: var(--y);
+  left: var(--x);
+  transform: translate(-50%, -50%);
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, rgba(255,255,255,0.26), rgba(255,255,255,0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.glass-hero:hover::before {
+  opacity: 1;
+}
+
+/* Hover lift animation */
+.glass-hero:hover {
+  transform: scale(1.02);
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.42);
+}
+
+/* Hero Heading & Text */
+.hero-section h1 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+.hero-section p {
+  font-size: 1.25rem;
+  font-weight: 400;
+  max-width: 750px;
+  margin: 15px auto;
+}
+
+/* Navy Text */
+.text-navy {
+  color: #001f4d !important;
+}
+
+/* CTA section */
+.cta-section {
+  background: linear-gradient(120deg, #0058cc, #003a88);
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 576px) {
+  .hero-section h1 {
+    font-size: 2.2rem;
+  }
+  .hero-section p {
+    font-size: 1rem;
+  }
+  .btn-lg {
+    width: 100%;
+    margin-bottom: 12px;
+  }
+  .glass-hero {
+    padding: 32px 22px;
+  }
+}
+
+/* Tablet improvements */
+@media (max-width: 992px) {
+  .hero-section {
+    padding: 0 20px;
+  }
+}
+
+/* Large screen beauty */
+@media (min-width: 1600px) {
+  .hero-section h1 {
+    font-size: 3.6rem;
+  }
+  .hero-section p {
+    font-size: 1.45rem;
+  }
+}
+.hero-btn-primary {
+  background: linear-gradient(135deg, #0058cc, #00a2ff);
+  color: #fff !important;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 32px;
+  font-weight: 600;
+  transition: 0.3s ease;
+  text-decoration: none;   /* 🔥 underline removed */
+}
+.hero-btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.35);
+  text-decoration: none;   /* prevent underline on hover */
+}
+
+/* Second CTA with frosted glass — now visible on any background */
+.hero-btn-secondary {
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  border: 1.7px solid rgba(255, 255, 255, 0.65);
+  background: rgba(255, 255, 255, 0.82);
+  color: #003a88 !important; 
+  padding: 12px 32px;
+  font-weight: 600;
+  transition: 0.3s ease;
+  text-decoration: none;   /* 🔥 underline removed */
+}
+.hero-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.92);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(255, 255, 255, 0.35);
+  text-decoration: none;   /* prevent underline on hover */
+}
+
+
+/* Button responsiveness fix */
+@media (max-width: 576px) {
+  .hero-btn-primary,
+  .hero-btn-secondary {
+    width: 100%;
+    margin-bottom: 12px;
+  }
+}
+

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SmartKNN Version History</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* ---------- GLOBAL ---------- */
+body {
+    background: #0d0d0d;
+    color: #d7d7d7;
+    font-family: "Inter", sans-serif;
+    margin: 0;
+    line-height: 1.65;
+}
+h1, h2, h3 {
+    color: #3b82f6;
+    margin-top: 0;
+}
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px 20px;
+}
+header {
+    text-align: center;
+    padding: 70px 20px;
+}
+
+/* ---------- SECTIONS ---------- */
+.section {
+    background: #121212;
+    border: 1px solid #1c1c1c;
+    border-radius: 12px;
+    padding: 35px;
+    margin-bottom: 45px;
+    box-shadow: 0 0 12px rgba(59,130,246,0.15);
+}
+
+/* ---------- TIMELINE CARDS ---------- */
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    margin-top: 25px;
+}
+.version-card {
+    background: #171717;
+    border: 1px solid #3b82f6;
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: 0 0 10px rgba(59,130,246,0.18);
+    position: relative;
+    transition: 0.25s;
+}
+.version-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 15px rgba(59,130,246,0.32);
+}
+.timeline-line {
+    width: 3px;
+    background: #3b82f6;
+    height: 40px;
+    margin: 0 auto;
+    border-radius: 8px;
+}
+
+/* ---------- INFO / WARNING ---------- */
+.info-box {
+    border-left: 4px solid #3b82f6;
+    background: rgba(59,130,246,0.12);
+    padding: 14px 18px;
+    border-radius: 10px;
+    margin-top: 16px;
+}
+.warning-box {
+    border-left: 4px solid #e74a4a;
+    background: rgba(231,74,74,0.18);
+    padding: 14px 18px;
+    border-radius: 10px;
+    margin-top: 16px;
+}
+
+/* ---------- CODE BLOCKS ---------- */
+pre {
+    background: #111;
+    border-left: 4px solid #3b82f6;
+    padding: 15px;
+    border-radius: 10px;
+    overflow-x: auto;
+    position: relative;
+    margin-top: 18px;
+}
+code {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.92rem;
+    white-space: pre;
+}
+.copy-btn {
+    position: absolute;
+    right: 12px;
+    top: 10px;
+    background: #1a1a1a;
+    border: 1px solid #3b82f6;
+    color: #3b82f6;
+    padding: 5px 11px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 0.75rem;
+    transition: 0.25s;
+}
+.copy-btn:hover {
+    background: #3b82f6;
+    color: #fff;
+    box-shadow: 0 0 10px #3b82f6;
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+    text-align: center;
+    padding: 40px;
+    font-size: 0.9rem;
+    color: #7c8aaa;
+}
+
+/* MOBILE */
+@media(max-width: 700px) {
+    .container { padding: 20px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>SmartKNN Version History</h1>
+    <p style="font-size:1.2rem; color:#9bb0d4;">
+        Evolution of SmartKNN - Features, Fixes, and Planned improvements.
+    </p>
+</header>
+
+
+<div class="container">
+<!-- INTRO -->
+<div class="section">
+    <h2>Overview</h2>
+    <p>
+        This page describes the progression of SmartKNN across releases, highlighting
+        improvements in classification logic, backend engines, vectorized execution,
+        and adaptive learning techniques.
+    </p>
+</div>
+
+
+<!-- TIMELINE -->
+<div class="section">
+    <h2>Release Timeline</h2>
+
+    <div class="timeline">
+
+        <!-- v0.1.0 -->
+        <div class="version-card">
+            <h3>Version 0.1.0 - First Public Release</h3>
+            <ul>
+                <li>Regression support</li>
+                <li>Initial classification support [experimental]</li>
+                <li>Basic SmartKNN feature weighting engine</li>
+            </ul>
+
+            <div class="warning-box">
+                Classification behavior was experimental in this release and returned
+                continuous values rather than discrete class labels.
+            </div>
+
+            <pre>
+<button class="copy-btn" onclick="copyToClipboard('ex-010')">Copy</button>
+<code id="ex-010">model = SmartKNN()
+model.fit(X, y)
+model.predict(X[:5])</code>
+            </pre>
+        </div>
+
+        <div class="timeline-line"></div>
+
+
+
+<!-- v0.1.1 -->
+<div class="version-card">
+    <h3>Version 0.1.1 - Stability and Safety Update</h3>
+    <ul>
+        <li>Classification temporarily disabled to prevent ambiguous outputs</li>
+        <li>Regression pipeline stabilized</li>
+        <li>Improved consistency in feature weight learning</li>
+    </ul>
+
+    <div class="info-box">
+        The classification module was internally refactored in preparation
+        for a redesigned decision logic introduced in v0.2.0.
+    </div>
+
+    <pre>
+<button class="copy-btn" onclick="copyToClipboard('ex-011')">Copy</button>
+<code id="ex-011">model = SmartKNN() #Regression Only
+model.fit(X, y)</code>
+    </pre>
+</div>
+
+<div class="timeline-line"></div>
+
+
+
+    <!-- v0.2.0 -->
+<div class="version-card">
+    <h3>Version 0.2.0 - Performance & Scalability Upgrade</h3>
+    <ul>
+        <li>Major performance improvements through vectorized execution</li>
+        <li>Removal of Python loops from critical distance and weighting paths</li>
+        <li>ANN backend introduced for fast neighbour candidate retrieval</li>
+        <li>Optional GPU support for neighbour search acceleration</li>
+        <li>Feature weight learning redesigned to scale to millions of samples</li>
+        <li>Classification support reintroduced with stable decision logic</li>
+    </ul>
+
+    <div class="info-box">
+        This release focuses on production readiness by prioritizing
+        predictable inference latency and scalable training behavior.
+    </div>
+
+    <pre>
+<button class="copy-btn" onclick="copyToClipboard('ex-020')">Copy</button>
+<code id="ex-020">model = SmartKNN(
+    k=7,
+    use_ann=True,
+    backend='auto'
+)
+model.fit(X_train, y_train)
+pred = model.predict(X_test)</code>
+    </pre>
+</div>
+
+<div class="timeline-line"></div>
+
+</div>
+<!-- FEATURE PROGRESS SUMMARY -->
+<div class="section">
+    <h2>Feature Progress Summary</h2>
+
+    <h3>Version 0.1.0</h3>
+    <ul>
+        <li><strong>Regression:</strong> Stable</li>
+        <li><strong>Classification:</strong> Experimental</li>
+        <li><strong>Execution:</strong> Partially vectorized</li>
+        <li><strong>ANN backend:</strong> Not available</li>
+        <li><strong>GPU support:</strong> Not available</li>
+    </ul>
+
+    <h3>Version 0.1.1</h3>
+    <ul>
+        <li><strong>Regression:</strong> Stable</li>
+        <li><strong>Classification:</strong> Disabled for safety</li>
+        <li><strong>Execution:</strong> Partially vectorized</li>
+        <li><strong>ANN backend:</strong> Not available</li>
+        <li><strong>GPU support:</strong> Not available</li>
+    </ul>
+
+    <h3>Version 0.2.0</h3>
+    <ul>
+        <li><strong>Regression:</strong> Stable</li>
+        <li><strong>Classification:</strong> Stable</li>
+        <li><strong>Execution:</strong> Fully vectorized</li>
+        <li><strong>ANN backend:</strong> Available</li>
+        <li><strong>GPU support:</strong> Available for neighbour search</li>
+    </ul>
+</div>
+
+<!-- ROADMAP NOTE -->
+<div class="section">
+    <h2>Roadmap Notes</h2>
+    <ul>
+        <li>
+            The transition from the 0.1.x series to 0.2.x focuses on stabilizing
+            classification and unifying behavior across regression and classification tasks.
+        </li>
+        <li>
+            The introduction of ANN and optional GPU-backed neighbour search
+            enables SmartKNN to operate at production scale with predictable latency.
+        </li>
+    </ul>
+</div>
+
+</div>
+
+<footer>
+    SmartEco - SmartKNN Version History • Documentation<br>
+</footer>
+
+<script>
+/* COPY BUTTON LOGIC */
+function copyToClipboard(id){
+    const text = document.getElementById(id).innerText;
+    navigator.clipboard.writeText(text);
+    const btn = event.target;
+    const old = btn.innerText;
+    btn.innerText = "Copied!";
+    setTimeout(() => btn.innerText = old, 1500);
+}
+</script>
+
+</body>
+</html>

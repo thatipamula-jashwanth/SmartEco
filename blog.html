@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | SmartEco</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/blog.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-white shadow-sm fixed-top py-3">
+  <div class="container">
+    <a class="navbar-brand fw-bold text-primary fs-3" href="index.html">SmartEco</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link fw-semibold" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold" href="smartknn.html">SmartKNN</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold" href="research.html">Research</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold active text-primary" href="blog.html">Blog</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold active text-primary" href="suggestions.html">Suggestions</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="blog-hero d-flex align-items-center position-relative">
+  <canvas id="blog-bg"></canvas>
+
+  <div class="container text-center position-relative glass-hero">
+    <h1 class="display-5 fw-bold text-navy">SmartEco Blog</h1>
+    <p class="lead text-navy mt-2">Articles, deep dives, release notes, and tutorials.</p>
+  </div>
+</section>
+
+<!-- Blog Cards -->
+<section class="container py-5">
+  <div class="row g-4">
+
+    <!-- Blog 1 -->
+    <div class="col-md-6 col-lg-4">
+      <div class="blog-card p-4 shadow-sm h-100">
+        <h4 class="fw-bold text-navy">How SmartKNN Learns Feature Weights Internally</h4>
+        <p class="text-secondary mb-4">A deep dive into SmartKNN’s MSE, MI, and RF-based feature scoring system.</p>
+        <a href="blog-1.html" class="blog-btn">Read more</a>
+      </div>
+    </div>
+
+    <!-- Blog 2 -->
+<div class="col-md-6 col-lg-4">
+  <div class="blog-card p-4 shadow-sm h-100">
+    <h4 class="fw-bold text-navy">From KNN to SmartKNN - 50 Years of Evolution</h4>
+    <p class="text-secondary mb-4">
+      From 1967’s simple distance rule to SmartKNN’s 
+      modern metric-learning built for real-world ML.
+    </p>
+    <a href="blog-2.html" class="blog-btn">Read more</a>
+  </div>
+</div>
+
+<!-- Blog 3 -->
+<div class="col-md-6 col-lg-4">
+  <div class="blog-card p-4 shadow-sm h-100">
+    <h4 class="fw-bold text-navy">How We’re Pushing SmartKNN</h4>
+    <p class="text-secondary mb-4">
+      Turning KNN into a production-ready, white-box algorithm by pushing speed,
+      accuracy, and scalability beyond traditional limits.
+    </p>
+    <a href="blog-3.html" class="blog-btn">Read more</a>
+  </div>
+</div>
+
+
+<!--
+    
+    <div class="col-md-6 col-lg-4">
+      <div class="blog-card p-4 shadow-sm h-100">
+        <h4 class="fw-bold text-navy">SmartForge: The ML Pipeline Framework Behind SmartEco</h4>
+        <p class="text-secondary mb-4">Why SmartForge is the backbone for preprocessing, pipelines, metrics, and evaluation.</p>
+        <a href="blog-4.html" class="blog-btn">Read more</a>
+      </div>
+    </div>
+
+    
+    <div class="col-md-6 col-lg-4">
+      <div class="blog-card p-4 shadow-sm h-100">
+        <h4 class="fw-bold text-navy">Inside SmartKNN v2 — Engineering Notes</h4>
+        <p class="text-secondary mb-4">ANN backend, adaptive K, RL training, distance improvements, and design trade-offs.</p>
+        <a href="blog-5.html" class="blog-btn">Read more</a>
+      </div>
+    </div>
+
+    
+    <div class="col-md-6 col-lg-4">
+      <div class="blog-card p-4 shadow-sm h-100">
+        <h4 class="fw-bold text-navy">SmartSearch: A Lightweight ML Search Engine</h4>
+        <p class="text-secondary mb-4">The architecture behind SmartEco’s fast semantic search system.</p>
+        <a href="blog-7.html" class="blog-btn">Read more</a>
+      </div>
+    </div>
+
+    
+    <div class="col-md-6 col-lg-4">
+      <div class="blog-card p-4 shadow-sm h-100">
+        <h4 class="fw-bold text-navy">Feature Selection Is Broken — Here’s How SmartEco Fixes It</h4>
+        <p class="text-secondary mb-4">Why conventional feature selection fails, and SmartEco’s multi-signal method works.</p>
+        <a href="blog-8.html" class="blog-btn">Read more</a>
+      </div>
+    </div>
+
+    
+    <div class="col-md-6 col-lg-4">
+      <div class="blog-card p-4 shadow-sm h-100">
+        <h4 class="fw-bold text-navy">SmartForge Pipelines: A Simpler Way to Build ML Systems</h4>
+        <p class="text-secondary mb-4">A practical walkthrough of SmartForge’s pipeline system.</p>
+        <a href="blog-9.html" class="blog-btn">Read more</a>
+      </div>
+    </div>
+
+    
+    <div class="col-md-6 col-lg-4">
+      <div class="blog-card p-4 shadow-sm h-100">
+        <h4 class="fw-bold text-navy">How SmartKNN Uses Reinforcement Learning</h4>
+        <p class="text-secondary mb-4">Exploring how SmartKNN v2 adjusts feature weights using RL feedback.</p>
+        <a href="blog-10.html" class="blog-btn">Read more</a>
+      </div>
+    </div>
+-->
+
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-4 bg-dark text-center text-white small">
+  <div class="container">
+    © 2025 SmartEco - SmartKNN
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/blog.js"></script>
+</body>
+</html>

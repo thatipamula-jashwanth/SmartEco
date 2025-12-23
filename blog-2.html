@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>From KNN to SmartKNN — Evolution of a 50-Year-Old Algorithm | SmartEco Blog</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+      body {
+          font-family: "Inter", sans-serif;
+          background: #f7f9fc;
+          margin: 0;
+          padding: 0;
+          line-height: 1.75;
+          color: #1a1a1a;
+      }
+
+      .blog-container {
+          max-width: 900px;
+          margin: 120px auto 60px;
+          background: #fff;
+          padding: 40px 55px;
+          border-radius: 14px;
+          box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+          animation: fadeIn 1s ease-out;
+      }
+
+      h1, h2, h3 {
+          font-weight: 700;
+          color: #111;
+      }
+
+      h1 {
+          font-size: 2.3rem;
+      }
+
+      h2 {
+          margin-top: 45px;
+          border-left: 4px solid #4f46e5;
+          padding-left: 12px;
+          font-size: 1.6rem;
+      }
+
+      h3 {
+          margin-top: 25px;
+          font-size: 1.25rem;
+      }
+
+      pre {
+          background: #1e1e1e;
+          color: #eee;
+          padding: 14px 18px;
+          border-radius: 8px;
+          font-size: 0.9rem;
+          overflow-x: auto;
+      }
+
+      .tag {
+          display: inline-block;
+          background: #eef2ff;
+          color: #4f46e5;
+          padding: 6px 12px;
+          border-radius: 6px;
+          font-size: 0.85rem;
+          margin-right: 8px;
+      }
+
+      .quote {
+          padding: 18px;
+          background: #f0f3ff;
+          border-left: 4px solid #4f46e5;
+          font-style: italic;
+          border-radius: 6px;
+          margin: 25px 0;
+      }
+
+       .footer {
+            text-align: center;
+            margin-top: 45px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+
+      @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(20px); }
+          to   { opacity: 1; transform: translateY(0); }
+      }
+  </style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-white shadow-sm fixed-top py-3">
+  <div class="container">
+      <a class="navbar-brand fw-bold text-primary fs-3" href="index.html">SmartEco</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto">
+              <li class="nav-item"><a class="nav-link fw-semibold" href="index.html">Home</a></li>
+              <li class="nav-item"><a class="nav-link fw-semibold" href="smartknn.html">SmartKNN</a></li>
+              <li class="nav-item"><a class="nav-link fw-semibold" href="research.html">Research</a></li>
+              <li class="nav-item"><a class="nav-link fw-semibold active text-primary" href="blog.html">Blog</a></li>
+              <li class="nav-item"><a class="nav-link fw-semibold" href="benchmarks.html">Benchmarks</a></li>
+              <li class="nav-item"><a class="nav-link fw-semibold" href="about.html">About</a></li>
+          </ul>
+      </div>
+  </div>
+</nav>
+
+<!-- Blog Container -->
+<div class="blog-container">
+
+    <h1>From KNN to SmartKNN - Evolution of a 50-Year-Old Algorithm</h1>
+
+    <div class="quote">
+        A historical and technical look at how KNN evolved from a simple distance-based method into SmartKNN - a metric-learning inspired algorithm optimized for modern tabular ML.
+    </div>
+
+    <p>
+        K-Nearest Neighbors (KNN) first appeared in literature around <strong>1967</strong>.  
+        Over 50+ years, it evolved through multiple breakthroughs: KD-Trees, Ball Trees, Approximate Nearest Neighbors (ANN), metric learning, and finally SmartKNN.
+    </p>
+
+    <p>
+        This article traces the evolution of KNN - what each stage solved, where limitations remained, and why SmartKNN represents the next major step.
+    </p>
+
+    <h2>1967 - Original KNN (The Beginning)</h2>
+    <p>
+        The original KNN introduced a simple but powerful idea:
+    </p>
+
+    <div class="quote">Predict using similar past cases instead of learning an explicit function.</div>
+
+    <h3>What it solved</h3>
+    <ul>
+        <li>No training required</li>
+        <li>Intuitive pattern matching</li>
+        <li>Works well on very small datasets</li>
+    </ul>
+
+    <h3>Limitations</h3>
+    <ul>
+        <li>Brute-force search → extremely slow on large datasets</li>
+        <li>No feature weighting or selection</li>
+        <li>Breaks in high-dimensional space</li>
+        <li>Highly sensitive to noise</li>
+    </ul>
+
+    <h2>1990s - KD Trees (Solving Speed for Low Dimensions)</h2>
+
+    <h3>What it solved</h3>
+    <ul>
+        <li>Spatial partitioning enabled <strong>O(log N)</strong> search</li>
+        <li>Huge improvement over brute force</li>
+        <li>Great for ≤ 20 dimensions</li>
+    </ul>
+
+    <h3>Limitations</h3>
+    <ul>
+        <li>Fails in high-dimensional data</li>
+        <li>No noise handling</li>
+        <li>No metric learning - still raw Euclidean distance</li>
+    </ul>
+
+    <h2>2000s - Ball Trees (Handling Irregular Distributions)</h2>
+
+    <h3>What it solved</h3>
+    <ul>
+        <li>Better for data not aligned to axes</li>
+        <li>Partitions space via hyperspheres</li>
+        <li>More robust pruning</li>
+    </ul>
+
+    <h3>Limitations</h3>
+    <ul>
+        <li>Still collapses beyond 30 - 50 dimensions</li>
+        <li>Still uses equal feature weights</li>
+        <li>Sensitive to outliers and scale</li>
+    </ul>
+
+    <h2>2010s - Approximate Nearest Neighbors (ANN)</h2>
+
+    <h3>What it solved</h3>
+    <ul>
+        <li>Sub-millisecond search at massive scale</li>
+        <li>Great for embeddings, search engines, vector databases</li>
+        <li>Excellent for image, text, and LLM-based vectors</li>
+    </ul>
+
+    <h3>Limitations</h3>
+    <ul>
+        <li><strong>Not designed for tabular KNN</strong></li>
+        <li>Does not improve distance quality - only search speed</li>
+        <li>Still assumes raw Euclidean geometry</li>
+        <li>No handling of tabular noise or feature semantics</li>
+    </ul>
+
+    <h2>2020s - Metric Learning (Learning Similarity Itself)</h2>
+
+    <h3>What it solved</h3>
+    <ul>
+        <li>Learnable distance function</li>
+        <li>Weighted feature spaces</li>
+        <li>Siamese networks, triplet loss, contrastive learning</li>
+    </ul>
+
+    <h3>Limitations</h3>
+    <ul>
+        <li>Heavy training cost</li>
+        <li>Hard to interpret</li>
+        <li>Not ideal for small tabular datasets</li>
+    </ul>
+
+    <h2>2025 - SmartKNN</h2>
+
+    <p>
+        SmartKNN is the a KNN variant designed specifically for real-world tabular ML.
+    </p>
+
+    <h3>What SmartKNN solves</h3>
+    <ul>
+        <li>Feature weighting using MSE, MI, and ExtraTrees scoring</li>
+        <li>Noise suppression through learned weights</li>
+        <li>Stability in high-dimensional data</li>
+        <li>Auto Preprocessing of Numerical features for speed</li>
+        <li>Interpretability via learned weights & neighbors</li>
+    </ul>
+
+    <h2>Limitations of SmartKNN</h2>
+    <ul>
+        <li>Not ideal for sparse, ultra-high-cardinality categorical features</li>
+        <li>Still memory-based (stores samples or prototypes)</li>
+    </ul>
+
+    <h2>Final Thoughts</h2>
+    <p>
+        Over 50 years, KNN evolved from simple case-based learning into a sophisticated, metric-aware algorithm.  
+        SmartKNN is the newest chapter in this story - bringing feature weighting, stability, and modern engineering into a classic method.
+    </p>
+
+    <!-- Footer -->
+<footer class="footer">
+        © 2025 SmartEco - SmartKNN
+</footer>
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+// Fade-in animation for paragraphs, headers, lists
+const elements = document.querySelectorAll("h2, h3, p, ul, pre");
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = "translateY(0)";
+        }
+    });
+}, { threshold: 0.1 });
+
+elements.forEach(el => {
+    el.style.opacity = 0;
+    el.style.transform = "translateY(20px)";
+    el.style.transition = "all 0.6s ease";
+    observer.observe(el);
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SmartKNN Parameters</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* ---------- GLOBAL ---------- */
+body {
+    margin: 0;
+    background: #0d0d0d;
+    color: #d7d7d7;
+    font-family: "Inter", sans-serif;
+    line-height: 1.6;
+}
+h1, h2, h3 {
+    color: #3b82f6;
+    margin-top: 0;
+}
+a { color: #3b82f6; }
+
+/* ---------- LAYOUT ---------- */
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px 20px;
+}
+header {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+/* ---------- TABLE ---------- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+}
+th, td {
+    padding: 12px 14px;
+    border: 1px solid #3b82f6;
+}
+th {
+    background: rgba(59,130,246,0.18);
+    font-weight: 600;
+}
+tr:nth-child(even) { background: rgba(255,255,255,0.03); }
+
+/* ---------- CODE BLOCKS ---------- */
+pre {
+    background: #111;
+    border-left: 4px solid #3b82f6;
+    padding: 15px;
+    border-radius: 10px;
+    overflow-x: auto;
+    position: relative;
+    margin-top: 18px;
+}
+code {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.92rem;
+    white-space: pre;
+    display: block;
+}
+
+
+/* ---------- COPY BUTTON ---------- */
+.copy-btn {
+    position: absolute;
+    right: 12px;
+    top: 10px;
+    background: #1a1a1a;
+    color: #3b82f6;
+    border: 1px solid #3b82f6;
+    padding: 5px 10px;
+    border-radius: 7px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: 0.25s;
+}
+.copy-btn:hover {
+    background: #3b82f6;
+    color: #fff;
+    box-shadow: 0 0 10px #3b82f6;
+}
+
+/* ---------- ACCORDION PANELS ---------- */
+.accordion {
+    margin-top: 30px;
+}
+.accordion-item {
+    border: 1px solid #3b82f6;
+    border-radius: 10px;
+    margin-bottom: 18px;
+    overflow: hidden;
+    background: #101010;
+}
+.accordion-header {
+    cursor: pointer;
+    padding: 16px 20px;
+    font-size: 1.1rem;
+    color: #3b82f6;
+    background: rgba(59,130,246,0.12);
+    user-select: none;
+}
+.accordion-header:hover {
+    background: rgba(59,130,246,0.22);
+}
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    padding: 0 20px;
+}
+.accordion-content.open {
+    padding: 20px;
+    max-height: 600px;
+}
+
+/* ---------- SECTIONS ---------- */
+.section {
+    background: #121212;
+    padding: 30px;
+    margin-bottom: 45px;
+    border: 1px solid #1f1f1f;
+    border-radius: 12px;
+    box-shadow: 0 0 14px rgba(59,130,246,0.12);
+}
+footer {
+    text-align: center;
+    padding: 40px;
+    font-size: 0.9rem;
+    color: #7c8aaa;
+}
+
+/* RESPONSIVE */
+@media(max-width:700px) {
+    .container { padding: 20px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>SmartKNN Parameters</h1>
+    <p style="font-size:1.2rem; color:#9bb0d4;">
+        Detailed explanation of all configurable parameters in SmartKNN.
+    </p>
+</header>
+
+
+<div class="container">
+
+<!-- OVERVIEW -->
+<div class="section">
+    <h2>Overview</h2>
+    <p>
+        SmartKNN is fully configurable and exposes parameters that control both
+        learning behavior and neighbour search strategy.
+    </p>
+    <p>
+        The weighting factors <strong>alpha</strong>, <strong>beta</strong>, and <strong>gamma</strong>
+        influence feature weighting by adjusting the contribution of linear sensitivity,
+        mutual information, and tree-based importance signals.
+    </p>
+    <p>
+        SmartKNN also supports backend selection via
+        <strong>brute</strong>, <strong>ann</strong>, and <strong>auto</strong> modes,
+        allowing users to balance accuracy and performance based on dataset scale.
+    </p>
+</div>
+
+<!-- PARAMETER TABLE -->
+<div class="section">
+    <h2>Complete Parameter Table</h2>
+    <table>
+    <tr>
+        <th>Parameter</th>
+        <th>Type</th>
+        <th>Default</th>
+        <th>Description</th>
+    </tr>
+
+    <tr>
+        <td>k</td>
+        <td>int</td>
+        <td>5</td>
+        <td>Number of nearest neighbors used for prediction</td>
+    </tr>
+
+    <tr>
+        <td>weight_threshold</td>
+        <td>float</td>
+        <td>None</td>
+        <td>Filters out features with learned weights below the threshold</td>
+    </tr>
+
+    <tr>
+        <td>alpha</td>
+        <td>float</td>
+        <td>1/3</td>
+        <td>Linear sensitivity (MSE-based) weight component</td>
+    </tr>
+
+    <tr>
+        <td>beta</td>
+        <td>float</td>
+        <td>1/3</td>
+        <td>Mutual information weight component</td>
+    </tr>
+
+    <tr>
+        <td>gamma</td>
+        <td>float</td>
+        <td>1/3</td>
+        <td>Tree-based (RF-style) importance component for noisy data</td>
+    </tr>
+
+    <tr>
+        <td>force_classification</td>
+        <td>bool | None</td>
+        <td>None</td>
+        <td>
+            Forces classification mode when the target variable is numeric.
+            If None, the task type is inferred automatically.
+        </td>
+    </tr>
+
+    <tr>
+        <td>backend</td>
+        <td>str</td>
+        <td>"auto"</td>
+        <td>
+            Neighbour search backend selection:
+            brute, ann, or auto
+        </td>
+    </tr>
+
+    <tr>
+        <td>use_gpu</td>
+        <td>bool</td>
+        <td>False</td>
+        <td>
+            Enables GPU acceleration for neighbour search when supported
+            by the selected backend.
+        </td>
+    </tr>
+
+    <tr>
+        <td>n_jobs</td>
+        <td>int</td>
+        <td>-1</td>
+        <td>
+            Number of CPU threads used for parallel computation.
+            Use -1 to utilize all available cores.
+        </td>
+    </tr>
+</table>
+</div>
+
+
+<!-- ACCORDION FOR EACH PARAMETER -->
+<div class="section">
+    <h2>Parameter Explanations</h2>
+   <div class="accordion">
+
+    <!-- k -->
+    <div class="accordion-item">
+        <div class="accordion-header">K - Number of Neighbours</div>
+        <div class="accordion-content">
+            <p>
+                Controls the size of the local neighbourhood used for prediction.
+                Larger values smooth predictions, while smaller values increase sensitivity.
+            </p>
+            <ul>
+                <li><strong>Increase when:</strong> the dataset is noisy or labels are unstable</li>
+                <li><strong>Decrease when:</strong> sharp local decision boundaries exist</li>
+                <li><strong>Recommended range:</strong> 5–15 for most datasets</li>
+            </ul>
+            <pre>
+<button class="copy-btn" onclick="copyToClipboard('p-k')">Copy</button>
+<code id="p-k">model = SmartKNN(k=7)</code>
+            </pre>
+        </div>
+    </div>
+
+    <!-- weight_threshold -->
+    <div class="accordion-item">
+        <div class="accordion-header">weight_threshold - Feature Pruning Threshold</div>
+        <div class="accordion-content">
+            <p>
+                Removes features whose learned importance falls below the specified threshold,
+                reducing noise and improving performance.
+            </p>
+            <ul>
+                <li><strong>Increase when:</strong> Many irrelevant or redundant features exist</li>
+                <li><strong>Decrease when:</strong> Features contribute weak but cumulative signal</li>
+                <li><strong>Recommended range:</strong> 0.0 – 0.1</li>
+            </ul>
+            <pre>
+<button class="copy-btn" onclick="copyToClipboard('p-wt')">Copy</button>
+<code id="p-wt">model = SmartKNN(weight_threshold=0.1)</code>
+            </pre>
+        </div>
+    </div>
+
+    <!-- alpha -->
+    <div class="accordion-item">
+        <div class="accordion-header">alpha - Linear Sensitivity Weight</div>
+        <div class="accordion-content">
+            <p>
+                Controls the influence of linear [MSE-based] feature sensitivity during
+                weight learning.
+            </p>
+            <ul>
+                <li>Higher values emphasize linear relationships</li>
+                <li>Lower values favor nonlinear and interaction-based signals</li>
+            </ul>
+            <pre>
+<button class="copy-btn" onclick="copyToClipboard('p-alpha')">Copy</button>
+<code id="p-alpha">model = SmartKNN(alpha=0.3)</code>
+            </pre>
+        </div>
+    </div>
+
+    <!-- beta -->
+    <div class="accordion-item">
+        <div class="accordion-header">beta - Mutual Information Weight</div>
+        <div class="accordion-content">
+            <p>
+                Emphasizes nonlinear dependencies between features and the target
+                using mutual information.
+            </p>
+            <ul>
+                <li>Increase for complex, nonlinear tabular datasets</li>
+                <li>Reduce when linear models already perform well</li>
+            </ul>
+            <pre>
+<button class="copy-btn" onclick="copyToClipboard('p-beta')">Copy</button>
+<code id="p-beta">model = SmartKNN(beta=0.4)</code>
+            </pre>
+        </div>
+    </div>
+
+    <!-- gamma -->
+    <div class="accordion-item">
+        <div class="accordion-header">gamma - Tree-Based Importance Weight</div>
+        <div class="accordion-content">
+            <p>
+                Incorporates tree-style feature importance to improve robustness
+                on noisy or high-dimensional datasets.
+            </p>
+            <ul>
+                <li>Increase for mixed categorical and numerical features</li>
+                <li>Reduce for smooth, low-noise datasets</li>
+            </ul>
+            <pre>
+<button class="copy-btn" onclick="copyToClipboard('p-gamma')">Copy</button>
+<code id="p-gamma">model = SmartKNN(gamma=0.4)</code>
+            </pre>
+        </div>
+    </div>
+
+    <!-- force_classification -->
+    <div class="accordion-item">
+        <div class="accordion-header">force_classification - Override Task Detection</div>
+        <div class="accordion-content">
+            <p>
+                Forces classification mode even when the target values appear numeric.
+                Useful for encoded class labels.
+            </p>
+            <pre>
+<button class="copy-btn" onclick="copyToClipboard('p-force')">Copy</button>
+<code id="p-force">model = SmartKNN(force_classification=True)</code>
+            </pre>
+        </div>
+    </div>
+
+    <!-- backend -->
+    <div class="accordion-item">
+        <div class="accordion-header">backend - Neighbour Search Engine</div>
+        <div class="accordion-content">
+            <p>
+                Selects the neighbour search strategy:
+                <strong>brute</strong>, <strong>ann</strong>, or <strong>auto</strong>.
+            </p>
+            <pre>
+<button class="copy-btn" onclick="copyToClipboard('p-backend')">Copy</button>
+<code id="p-backend">model = SmartKNN(backend="ann")</code>
+            </pre>
+        </div>
+    </div>
+
+    <!-- use_gpu -->
+    <div class="accordion-item">
+        <div class="accordion-header">use_gpu - GPU Acceleration</div>
+        <div class="accordion-content">
+            <p>
+                Enables GPU acceleration for neighbour search when supported by
+                the selected backend and available runtime.
+            </p>
+            <pre>
+<button class="copy-btn" onclick="copyToClipboard('p-gpu')">Copy</button>
+<code id="p-gpu">model = SmartKNN(use_gpu=True)</code>
+            </pre>
+        </div>
+    </div>
+
+</div>
+
+</div><!-- BACKEND BEHAVIOR -->
+<div class="section">
+    <h2>Backend Behavior</h2>
+
+    <p>
+        <strong>Brute backend</strong> performs an exact KNN search over the full dataset.
+        It provides maximum accuracy but incurs higher latency on large datasets.
+    </p>
+
+    <p>
+        <strong>ANN backend</strong> uses approximate nearest neighbour indexing
+        to retrieve a small candidate set before refinement.
+        This significantly improves speed with minimal impact on accuracy.
+    </p>
+
+    <p>
+        <strong>Auto mode</strong> automatically selects the ANN backend when available
+        and falls back to brute-force search otherwise.
+    </p>
+
+    <pre>
+<button class="copy-btn" onclick="copyToClipboard('b-ann')">Copy</button>
+<code id="b-ann">SmartKNN(backend="ann")</code>
+    </pre>
+
+    <pre>
+<button class="copy-btn" onclick="copyToClipboard('b-brute')">Copy</button>
+<code id="b-brute">SmartKNN(backend="brute")</code>
+    </pre>
+
+    <pre>
+<button class="copy-btn" onclick="copyToClipboard('b-auto')">Copy</button>
+<code id="b-auto">SmartKNN(backend="auto")</code>
+    </pre>
+</div>
+
+<!-- TUNING RECIPES -->
+<div class="section">
+    <h2>Parameter Tuning Recipes</h2>
+    <h3>A. Fastest Prediction</h3>
+    <pre><button class="copy-btn" onclick="copyToClipboard('rec-fast')">Copy</button><code id="rec-fast">SmartKNN(k=3, backend="ann", use_gpu=True)</code></pre>
+
+    <h3>B. Best Accuracy (Linear)</h3>
+    <pre><button class="copy-btn" onclick="copyToClipboard('rec-lin')">Copy</button><code id="rec-lin">SmartKNN(alpha=0.6, beta=0.2, gamma=0.2)</code></pre>
+
+    <h3>C. Tree-Like Behavior (Noisy Tabular)</h3>
+    <pre><button class="copy-btn" onclick="copyToClipboard('rec-tree')">Copy</button><code id="rec-tree">SmartKNN(alpha=0.2, beta=0.2, gamma=0.6)</code></pre>
+<!-- TUNING RECIPES -->
+<div class="section">
+    <h2>Parameter Tuning Recipes</h2>
+
+    <h3>A. Fastest Prediction</h3>
+    <p>
+        Optimized for low-latency inference on large datasets using approximate
+        neighbour search and optional GPU acceleration.
+    </p>
+    <pre>
+<button class="copy-btn" onclick="copyToClipboard('rec-fast')">Copy</button>
+<code id="rec-fast">SmartKNN(k=5, backend="ann", use_gpu=True)</code>
+    </pre>
+
+    <h3>B. Best Accuracy [Mostly Linear Data]</h3>
+    <p>
+        Prioritizes linear sensitivity when relationships between features and
+        the target are approximately linear.
+    </p>
+    <pre>
+<button class="copy-btn" onclick="copyToClipboard('rec-lin')">Copy</button>
+<code id="rec-lin">SmartKNN(alpha=0.6, beta=0.2, gamma=0.2)</code>
+    </pre>
+
+    <h3>C. Tree-Like Behavior [Noisy Tabular Data]</h3>
+    <p>
+        Emphasizes tree-based importance to improve robustness in noisy or
+        mixed-type tabular datasets.
+    </p>
+    <pre>
+<button class="copy-btn" onclick="copyToClipboard('rec-tree')">Copy</button>
+<code id="rec-tree">SmartKNN(alpha=0.2, beta=0.2, gamma=0.6)</code>
+    </pre>
+
+    <h3>D. Balanced Mode</h3>
+    <p>
+        Uses equal weighting across linear, nonlinear, and tree-based signals.
+        A strong default choice for general-purpose datasets.
+    </p>
+    <pre>
+<button class="copy-btn" onclick="copyToClipboard('rec-bal')">Copy</button>
+<code id="rec-bal">SmartKNN(alpha=0.33, beta=0.33, gamma=0.34)</code>
+    </pre>
+</div>
+
+    <h3>D. Balanced Mode</h3>
+    <pre><button class="copy-btn" onclick="copyToClipboard('rec-bal')">Copy</button><code id="rec-bal">SmartKNN(alpha=0.33, beta=0.33, gamma=0.33)</code></pre>
+</div>
+<!-- FULL EXAMPLE SCRIPT -->
+<div class="section">
+    <h2>Full Example Script</h2>
+
+    <pre>
+<button class="copy-btn" onclick="copyToClipboard('full-example')">Copy</button>
+<code id="full-example">from smart_knn import SmartKNN
+import pandas as pd
+
+
+df = pd.read_csv("data.csv")
+
+X = df.drop(columns=["target"])
+y = df["target"]
+
+model = SmartKNN(
+    k=7,
+    alpha=0.4,
+    beta=0.3,
+    gamma=0.3,
+    weight_threshold=0.1,
+    backend="auto"
+)
+
+model.fit(X, y)
+
+predictions = model.predict(X.iloc[:5])
+print(predictions)</code>
+    </pre>
+</div>
+
+<!-- NOTES -->
+<div class="section">
+    <h2>Important Notes</h2>
+    <ul>
+        <li>
+            Feature weights are normalized automatically during training
+            and do not require manual scaling.
+        </li>
+        <li>
+            Some parameters are sensitive to small changes.
+            Tune values incrementally and validate on a held-out set.
+        </li>
+        <li>
+            The ANN backend may reduce accuracy if the candidate pool
+            is configured too small. Increase candidate size if recall drops.
+        </li>
+        <li>
+            GPU acceleration depends on a compatible CUDA runtime
+            and supported backend libraries (e.g., cuML or FAISS-GPU).
+        </li>
+    </ul>
+</div>
+
+</div>
+
+
+<footer>
+    SmartEco - SmartKNN Parameters • Documentation<br>
+</footer>
+
+<script>
+/* COPY CODE FUNCTION */
+function copyToClipboard(id) {
+    const code = document.getElementById(id).innerText;
+    navigator.clipboard.writeText(code);
+
+    const btn = event.target;
+    const old = btn.innerText;
+    btn.innerText = "Copied!";
+    setTimeout(() => btn.innerText = old, 1500);
+}
+
+/* ACCORDION INTERACTION */
+document.querySelectorAll(".accordion-header").forEach(header => {
+    header.addEventListener("click", () => {
+        const content = header.nextElementSibling;
+        content.classList.toggle("open");
+    });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suggestions | SmartEco</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/suggestions.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-white shadow-sm fixed-top py-3">
+  <div class="container">
+    <a class="navbar-brand fw-bold text-primary fs-3" href="index.html">SmartEco</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link fw-semibold" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold" href="smartknn.html">SmartKNN</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold" href="research.html">Research</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold" href="blog.html">Blog</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link fw-semibold active text-primary" href="suggestions.html">Suggestions</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="suggestion-hero d-flex align-items-center" style="min-height: 40vh;">
+  <div class="container text-center">
+    <h1 class="display-5 fw-bold text-navy">Suggestions & Feedback</h1>
+    <p class="lead text-navy mt-2">Share your ideas to help SmartEco grow and improve.</p>
+  </div>
+</section>
+
+<!-- Form Section -->
+<section class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="form-box p-5 shadow-sm rounded">
+        <h4 class="fw-bold text-navy mb-4 text-center">We’d love to hear from you!</h4>
+
+        <form>
+          <div class="mb-3">
+            <label class="form-label fw-semibold text-navy" for="name">Name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required aria-label="Name">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label fw-semibold text-navy" for="email">Email</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required aria-label="Email">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label fw-semibold text-navy" for="subject">Subject</label>
+            <input type="text" class="form-control" id="subject" name="subject" placeholder="Enter subject" required aria-label="Subject">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label fw-semibold text-navy" for="message">Suggestions / Feedback</label>
+            <textarea rows="6" class="form-control" id="message" name="message" placeholder="Write your feedback here" required aria-label="Message"></textarea>
+          </div>
+
+          <div class="text-center mt-4">
+            <button type="button" id="sendMailBtn" class="btn btn-primary px-5 py-2">✉ Send Suggestion</button>
+          </div>
+
+          <p class="small text-center mt-3 text-secondary">
+            🔹 This will open your email app to send your suggestion directly.
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Social Links -->
+<section class="socials bg-alt py-5">
+  <div class="container text-center">
+    <h4 class="fw-bold text-navy mb-3">Connect With Us</h4>
+    <a href="https://github.com/" target="_blank" class="btn btn-primary me-2 px-4">GitHub</a>
+    <a href="https://www.linkedin.com/" target="_blank" class="btn btn-primary me-2 px-4">LinkedIn</a>
+    <a href="https://medium.com/" target="_blank" class="btn btn-primary px-4">Medium</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-4 bg-dark text-center text-white small">
+  <div class="container">
+    © 2025 SmartEco
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- SEND MAIL SCRIPT -->
+<script>
+document.getElementById("sendMailBtn").addEventListener("click", () => {
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const subject = document.getElementById("subject").value.trim();
+  const message = document.getElementById("message").value.trim();
+
+  if (!name || !email || !subject || !message) {
+    alert("Please fill out all fields before sending.");
+    return;
+  }
+
+  const mailTo = "smartknn.contact@gmail.com";
+  const mailSubject = encodeURIComponent(`Suggestion: ${subject}`);
+  const mailBody = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+
+  window.location.href = `mailto:${mailTo}?subject=${mailSubject}&body=${mailBody}`;
+  alert("Your email client should open now. Thank you for your feedback!");
+});
+</script>
+
+</body>
+</html>
