@@ -8,6 +8,9 @@ edit_uri: edit/main/docs/
 
 theme:
   name: material
+
+  language: en
+
   features:
     - navigation.instant
     - navigation.tracking
@@ -17,9 +20,16 @@ theme:
     - search.highlight
     - content.code.copy
     - toc.integrate
+    - content.tabs.link
+
   palette:
-    primary: blue
-    accent: blue
+    - scheme: default
+      primary: indigo
+      accent: blue
+    - scheme: slate
+      primary: indigo
+      accent: blue
+
   font:
     text: Roboto
     code: Fira Code
@@ -32,22 +42,26 @@ extra:
     - name: google-site-verification
       content: X0Brwa3ecLdISQ75YpwtnFIhjPI9XOYjnwuIKI3qVwY
 
+extra_css:
+  - stylesheets/extra.css
+
 nav:
   - Home: index.md
   - Ecosystem: ecosystem.md
-  - Benchmarks: benchmarks.md
 
   - SmartKNN:
-      - Overview: products/smartknn/docs/overview.md
+      - Overview: products/smartknn/docs/index.md
       - Design Goals: products/smartknn/docs/design-goals.md
       - Core Concepts: products/smartknn/docs/core-concepts.md
       - Architecture: products/smartknn/docs/architecture.md
-      - Feature Weight Learning: products/smartknn/docs/feature-weight-learning.md
-      - Feature Pruning Engine: products/smartknn/docs/feature-pruning.md
+      - Algorithm Overview: products/smartknn/docs/algorithm-overview.md
+      - Feature Weights: products/smartknn/docs/feature-weight-learning.md
+      - Feature Pruning: products/smartknn/docs/feature-pruning.md
       - Distance Engine: products/smartknn/docs/distance-engine.md
       - Backend Strategy: products/smartknn/docs/backend-strategy.md
       - Prediction Logic: products/smartknn/docs/prediction-logic.md
       - Evaluation & Reporting: products/smartknn/docs/evaluation-reporting.md
+      - Benchmarks: products/smartknn/docs/Benchmarks.md
       - sklearn & Production: products/smartknn/docs/sklearn-production.md
       - When to Use / Not Use: products/smartknn/docs/when-to-use.md
       - Limitations: products/smartknn/docs/limitations.md

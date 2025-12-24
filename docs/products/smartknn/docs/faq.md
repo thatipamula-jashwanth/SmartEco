@@ -1,4 +1,4 @@
-# Frequently Asked Questions (FAQ)
+# **Frequently Asked Questions (FAQ)**
 
 This page answers common questions about SmartKNN’s design, behavior, and intended usage.
 
@@ -6,7 +6,7 @@ If you are new to SmartKNN, this section helps clarify *why certain choices were
 
 ---
 
-## What makes SmartKNN different from standard KNN?
+## **What makes SmartKNN different from standard KNN?**
 
 SmartKNN treats nearest-neighbor learning as a **system**, not a single algorithm.
 
@@ -21,7 +21,7 @@ Standard KNN typically applies a fixed distance metric and naive aggregation.
 
 ---
 
-## Does SmartKNN require manual feature scaling or preprocessing?
+## **Does SmartKNN require manual feature scaling or preprocessing?**
 
 No.
 
@@ -34,7 +34,7 @@ Users can provide raw numeric features directly.
 
 ---
 
-## Is SmartKNN a lazy learner?
+## **Is SmartKNN a lazy learner?**
 
 Yes — but with structure.
 
@@ -45,7 +45,7 @@ Inference itself is deterministic and optimized.
 
 ---
 
-## Does SmartKNN perform online or incremental learning?
+## **Does SmartKNN perform online or incremental learning?**
 
 No.
 
@@ -61,7 +61,7 @@ For streaming or continuously adapting systems, SmartKNN is not the right tool.
 
 ---
 
-## How does SmartKNN handle large datasets?
+## **How does SmartKNN handle large datasets?**
 
 SmartKNN supports large datasets through:
 - Automatic backend selection
@@ -72,7 +72,7 @@ Backend choice affects *how neighbors are retrieved*, not *how predictions are c
 
 ---
 
-## Is ANN always used for large datasets?
+## **Is ANN always used for large datasets?**
 
 Not always.
 
@@ -85,7 +85,7 @@ This behavior is automatic and designed to preserve prediction correctness.
 
 ---
 
-## Does ANN change prediction behavior?
+## **Does ANN change prediction behavior?**
 
 No.
 
@@ -100,7 +100,7 @@ remain identical to brute-force execution.
 
 ---
 
-## How are predictions computed for regression?
+## **How are predictions computed for regression?**
 
 Regression uses **distance-weighted local regression**.
 
@@ -112,7 +112,7 @@ This produces smooth, locally adaptive predictions.
 
 ---
 
-## How are predictions computed for classification?
+## **How are predictions computed for classification?**
 
 Classification uses **distance-weighted class voting**.
 
@@ -124,7 +124,7 @@ This avoids brittle majority voting and improves minority-class recall.
 
 ---
 
-## Is SmartKNN deterministic?
+## **Is SmartKNN deterministic?**
 
 Yes.
 
@@ -139,7 +139,7 @@ No randomness or hidden state is introduced during inference.
 
 ---
 
-## Is SmartKNN compatible with scikit-learn?
+## **Is SmartKNN compatible with scikit-learn?**
 
 Yes.
 
@@ -153,7 +153,7 @@ It can be used in sklearn pipelines and evaluation workflows.
 
 ---
 
-## Can SmartKNN run without a GPU?
+## **Can SmartKNN run without a GPU?**
 
 Yes.
 
@@ -163,7 +163,7 @@ GPU support, when available, is limited to neighbor search in ANN backends and i
 
 ---
 
-## What types of data does SmartKNN support?
+## **What types of data does SmartKNN support?**
 
 SmartKNN is best suited for:
 - Numeric tabular data
@@ -174,7 +174,7 @@ It is not designed for raw text, images, or unstructured data without prior feat
 
 ---
 
-## When should I NOT use SmartKNN?
+## **When should I NOT use SmartKNN?**
 
 Avoid SmartKNN if:
 - You require online learning
@@ -186,7 +186,7 @@ See **When to Use / When Not Use** for details.
 
 ---
 
-## Is SmartKNN production-ready?
+## **Is SmartKNN production-ready?**
 
 Yes.
 
@@ -200,7 +200,7 @@ It is suitable for real-world production systems.
 
 ---
 
-## Where should I start?
+## **Where should I start?**
 
 - Read **Design Goals** and **Core Concepts** for intuition
 - Explore runnable examples in the repository
