@@ -8,8 +8,6 @@ edit_uri: edit/main/docs/
 
 theme:
   name: material
-  logo: docs/products/smartknn/assets/logo.png
-  favicon: docs/products/smartknn/assets/favicon.png
 
   language: en
 
