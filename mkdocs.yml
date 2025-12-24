@@ -1,0 +1,66 @@
+site_name: SmartEco
+site_description: High-performance, interpretable machine learning systems for production
+site_url: https://thatipamula-jashwanth.github.io/SmartEco/
+
+repo_url: https://github.com/thatipamula-jashwanth/SmartEco
+repo_name: SmartEco
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - content.code.copy
+    - toc.integrate
+  palette:
+    primary: blue
+    accent: blue
+  font:
+    text: Roboto
+    code: Fira Code
+
+plugins:
+  - search
+  - sitemap:
+      changefreq: weekly
+      priority: 0.6
+
+extra:
+  meta:
+    - name: google-site-verification
+      content: X0Brwa3ecLdISQ75YpwtnFIhjPI9XOYjnwuIKI3qVwY
+
+nav:
+  - Home: index.md
+  - Ecosystem: ecosystem.md
+  - Benchmarks: benchmarks.md
+
+  - SmartKNN:
+      - Overview: products/smartknn/docs/overview.md
+      - Design Goals: products/smartknn/docs/design-goals.md
+      - Core Concepts: products/smartknn/docs/core-concepts.md
+      - Architecture: products/smartknn/docs/architecture.md
+      - Feature Weight Learning: products/smartknn/docs/feature-weight-learning.md
+      - Feature Pruning Engine: products/smartknn/docs/feature-pruning.md
+      - Distance Engine: products/smartknn/docs/distance-engine.md
+      - Backend Strategy: products/smartknn/docs/backend-strategy.md
+      - Prediction Logic: products/smartknn/docs/prediction-logic.md
+      - Evaluation & Reporting: products/smartknn/docs/evaluation-reporting.md
+      - sklearn & Production: products/smartknn/docs/sklearn-production.md
+      - When to Use / Not Use: products/smartknn/docs/when-to-use.md
+      - Limitations: products/smartknn/docs/limitations.md
+      - Installation: products/smartknn/docs/installation.md
+      - FAQ: products/smartknn/docs/faq.md
+      - Versioning: products/smartknn/docs/versioning.md
+
+markdown_extensions:
+  - admonition
+  - tables
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
