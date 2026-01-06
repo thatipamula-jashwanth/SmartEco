@@ -9,7 +9,7 @@ All examples reflect the **actual SmartEco.SmartML API** and recommended workflo
 ## Installing SmartML
 
 ``` bash
-pip install smarteco
+pip install SmartEco
 ```
 
 ## Importing SmartML
