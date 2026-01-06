@@ -73,11 +73,13 @@ Warmup operations, if present, are **not included** in training time.
 Batch inference time measures how long a model takes to predict on the **entire test set**.
 
 Procedure:
+
 - A small warmup prediction is executed
 - Full test set prediction is timed
 - Time is reported in seconds
 
 Derived metrics:
+
 - Number of samples processed
 - Batch throughput (samples per second)
 
@@ -90,16 +92,19 @@ Batch benchmarking reflects throughput-oriented workloads.
 Single-sample latency measures per-request inference cost.
 
 Procedure:
+
 - A warmup prediction is executed
 - A fixed number of inference runs are performed
 - Each run predicts a single randomly selected sample
 - Latency is measured in milliseconds
 
 Default behavior:
+
 - 200 inference runs
 - Fixed random seed for reproducibility
 
 Reported metrics:
+
 - Mean single-sample latency (ms)
 - 95th percentile latency (P95, ms)
 
@@ -152,4 +157,3 @@ The benchmarking system is designed to:
 - Remain model-agnostic
 
 No model-specific optimizations or shortcuts are applied.
-

@@ -33,6 +33,7 @@ Datasets can be loaded from:
 - OpenML datasets (via dataset ID)  
 
 After loading:
+
 - The target column is validated
 - Optional subsampling may be applied
 - Features and target are separated
@@ -110,11 +111,13 @@ Scaling is **not applied globally** and **not forced on all models**.
 ### Models That Use Feature Scaling
 
 Scaling is applied internally for:
+
 - Linear models (Linear, Ridge, Lasso, ElasticNet)
 - Support Vector Machines (SVC, SVR)
 - K-Nearest Neighbors (classification and regression)
 
 These models use **standard normalization** to ensure:
+
 - Distance-based comparisons are meaningful
 - Optimization converges correctly
 - Benchmarks reflect correct model behavior
@@ -122,11 +125,13 @@ These models use **standard normalization** to ensure:
 ### Models That Do Not Use Scaling
 
 Scaling is intentionally **not applied** to:
+
 - Tree-based models (Random Forest, Extra Trees, LightGBM, XGBoost, CatBoost)
 - Deep learning models with internal normalization
 - SmartKNN (uses its own internal distance logic)
 
 Applying scaling to these models would either:
+
 - Have no effect
 - Degrade performance
 - Bias benchmarks unfairly
@@ -139,14 +144,16 @@ Scaling is applied **only when required for correctness**, not for optimization.
 
 ## Target Encoding
 
-Target encoding depends on task type:
+Target encoding depends on task type.
 
 ### Classification
+
 - Labels are converted to strings
 - Label encoding is applied
 - Mapping is learned from training labels only
 
 ### Regression
+
 - Target values are passed through directly
 - Converted to `float32`
 
@@ -204,6 +211,7 @@ This stabilizes inference latency measurements.
 After training, each model is evaluated on the test set.
 
 Evaluation includes:
+
 - Task-specific performance metrics
 - Training time
 - Inference latency metrics
@@ -261,5 +269,3 @@ The training system is designed to:
 - Favor transparency over flexibility
 
 If custom training logic is required, SmartML is not intended to be extended implicitly.
-
-

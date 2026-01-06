@@ -9,6 +9,7 @@ This section answers common questions and clarifies expected SmartML behavior.
 SmartML is a **benchmarking and inspection tool**.
 
 It is designed to:
+
 - Compare multiple models fairly on the same dataset
 - Provide baseline performance and latency numbers
 - Help select a model family before building a custom pipeline
@@ -22,6 +23,7 @@ It is not intended for production or leaderboard submissions.
 Yes, **for model selection only**.
 
 Recommended usage:
+
 - Run SmartML on the competition dataset
 - Identify strong-performing model families
 - Exit SmartML
@@ -34,6 +36,7 @@ SmartML should **not** be used to generate final Kaggle submissions.
 ### Why doesn’t SmartML allow custom train/test splits?
 
 Custom splits introduce:
+
 - Data leakage risks
 - Inconsistent benchmarks
 - Unfair comparisons
@@ -58,6 +61,7 @@ Correct task selection is the user’s responsibility.
 ### Why is there no hyperparameter tuning?
 
 Hyperparameter tuning:
+
 - Biases benchmarks
 - Inflates results
 - Breaks reproducibility
@@ -71,6 +75,7 @@ SmartML compares **model families**, not optimized configurations.
 Some models require **optional dependencies**.
 
 If a dependency is missing:
+
 - The model is silently disabled
 - It does not appear in the available model list
 
@@ -83,6 +88,7 @@ Use the inspection utilities to see which models are available.
 Yes, often.
 
 Deep learning models:
+
 - Run on CPU by default
 - Use conservative training limits
 - Are included for comparison, not speed
@@ -104,6 +110,7 @@ All deep learning models run with CPU-safe defaults unless explicitly modified b
 Yes.
 
 Custom models can be added by:
+
 - Implementing the required interface
 - Registering the model in the appropriate registry
 - Ensuring deterministic behavior
@@ -117,6 +124,7 @@ SmartML does not auto-discover external models.
 No.
 
 SmartML:
+
 - Does not export pipelines
 - Does not manage inference services
 - Does not guarantee backward compatibility
@@ -128,6 +136,7 @@ It is strictly a benchmarking tool.
 ### How should SmartML results be interpreted?
 
 SmartML results are:
+
 - Directional, not absolute
 - Dataset-specific
 - Dependent on fixed defaults
@@ -149,4 +158,3 @@ No defaults are hidden or tuned dynamically.
 SmartML assumes an **informed user**.
 
 If you need guardrails, automation, or production safety checks, SmartML may not be the right tool.
-

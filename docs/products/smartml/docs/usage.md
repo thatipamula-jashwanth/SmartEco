@@ -6,17 +6,26 @@ All examples reflect the **actual SmartEco.SmartML API** and recommended workflo
 
 ---
 
+## Installing SmartML
+
+``` bash
+pip install smarteco
+```
+
 ## Importing SmartML
 
 SmartML is exposed through the SmartEco package.
 
+``` python
 from SmartEco.SmartML import load_dataset, run_training, SmartML_Inspect
-
+```
 ---
 
 ## Inspect Available Models
 
+```python
 SmartML_Inspect()
+```
 
 This will show:
 
@@ -31,6 +40,7 @@ This will show:
 
 SmartML can load datasets directly from OpenML.
 
+```python
 X, y = load_dataset(
     openml_id=562,
     target="usr",
@@ -38,6 +48,7 @@ X, y = load_dataset(
 )
 
 print(f"Dataset loaded: X={X.shape}, y={y.shape}")
+```
 
 - OpenML datasets are treated the same as CSV datasets after loading.
 
@@ -47,10 +58,12 @@ print(f"Dataset loaded: X={X.shape}, y={y.shape}")
 
 SmartML supports standard CSV files.
 
+```python
 X, y = load_dataset(
     csv_path="data/dataset.csv",
     target="label",
 )
+```
 
 - CSV and OpenML datasets follow the same internal pipeline.
 
@@ -60,11 +73,13 @@ X, y = load_dataset(
 
 For large datasets, subsampling can be used to get quick baseline results.
 
+```python
 X, y = load_dataset(
     csv_path="data/large_dataset.csv",
     target="label",
     subset=50000,
 )
+```
 
 ---
 
@@ -72,6 +87,7 @@ X, y = load_dataset(
 
 Run Only Selected Models
 
+```python
 results = run_training(
     X_df=X,
     y_ser=y,
@@ -83,11 +99,13 @@ results = run_training(
         "smartknn",
     ],
 )
+```
 
 ---
 
 ## Exclude Models
 
+```python
 results = run_training(
     X_df=X,
     y_ser=y,
@@ -97,6 +115,7 @@ results = run_training(
         "knn",
     ],
 )
+```
 
 Model names are:
 
@@ -112,14 +131,21 @@ SmartML does not auto-sort results.
 
 - Classification
 
+```python
 results.sort_values("macro_f1", ascending=False)
+```
 
 - Regression
 
+```python
 results.sort_values("r2", ascending=False)
+```
+
+---
 
 ## Full Code
 
+```python
 from SmartEco.SmartML import load_dataset, run_training, SmartML_Inspect
 
 SmartML_Inspect()
@@ -151,6 +177,9 @@ print(
         ascending=False,
     )
 )
+```
+
+---
 
 ## Important Notes
 

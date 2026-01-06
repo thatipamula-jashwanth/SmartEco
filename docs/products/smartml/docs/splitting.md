@@ -41,6 +41,7 @@ For classification tasks, SmartML attempts to use **stratified splitting** whene
 - Stratification is enabled **only if every class has at least 2 samples**
 
 If any class has fewer than 2 samples:
+
 - Stratification is disabled
 - A standard shuffled split is used instead
 - A warning is logged
@@ -117,4 +118,3 @@ This splitting strategy is designed to:
 - Keep results reproducible across runs and environments
 
 Flexible splitting options are intentionally excluded.
-

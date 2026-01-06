@@ -90,6 +90,7 @@ Deep models are included **for comparison**, not tuning or production usage.
 All deep models use conservative, deterministic defaults.
 
 Common characteristics:
+
 - CPU execution
 - Fixed number of training epochs
 - Deterministic training enabled

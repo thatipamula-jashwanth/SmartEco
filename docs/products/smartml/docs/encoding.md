@@ -23,6 +23,7 @@ SmartML inspects the input dataset and splits features into:
 
 - **Numerical columns**
   - Detected via pandas numeric dtypes
+
 - **Categorical columns**
   - Detected via `object` and `category` dtypes
 
@@ -36,6 +37,7 @@ Missing values are handled **before encoding** using fixed strategies:
 
 - **Numerical features**
   - Imputed using the **median**
+
 - **Categorical features**
   - Imputed using the **most frequent value**
 
@@ -69,6 +71,7 @@ One-Hot Encoding is used **only if all conditions below are met**:
 - Total unique values across low-cardinality columns ≤ 100  
 
 If these conditions are satisfied:
+
 - Low-cardinality columns → One-Hot Encoding
 - High-cardinality columns → Target Encoding
 
@@ -85,6 +88,7 @@ Target Encoding is applied when:
 - Dataset has many categorical columns
 
 Target Encoding uses:
+
 - Smoothing = 1.0
 - Minimum samples per leaf = 1
 
@@ -103,6 +107,7 @@ Numerical columns are processed using:
 - No normalization
 
 This ensures:
+
 - Minimal distortion of feature distributions
 - Model-agnostic preprocessing
 - Faster execution
@@ -135,6 +140,8 @@ This format is compatible with all supported ML and DL models.
 ---
 
 ## Target Encoding Logic
+
+Target encoding depends on task type.
 
 ### Classification Tasks
 
@@ -190,4 +197,3 @@ This encoding strategy prioritizes:
 - Benchmark stability
 
 Aggressive feature engineering and custom transformations are intentionally excluded.
-

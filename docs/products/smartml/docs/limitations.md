@@ -16,7 +16,9 @@ SmartML **does not validate semantic correctness** between the chosen task and t
 However, the results will be **meaningless or misleading**.
 
 ### Important
+
 It is the user’s responsibility to:
+
 - Select the correct task type
 - Ensure the target variable matches the task
 
@@ -59,6 +61,7 @@ Results are intended for analysis only.
 ## Limited Dataset Validation
 
 SmartML does not enforce:
+
 - Target type validation
 - Label distribution sanity checks
 - Feature leakage detection
@@ -70,6 +73,7 @@ Users must validate datasets independently.
 ## Deep Learning Constraints
 
 Deep learning models:
+
 - Run on CPU by default
 - Use conservative training limits
 - May be slow on large datasets
@@ -102,6 +106,7 @@ Users are responsible for resource management.
 ## Benchmark Interpretation
 
 SmartML outputs:
+
 - Raw performance metrics
 - Latency measurements
 - No confidence intervals
@@ -116,10 +121,9 @@ Results should be interpreted as **directional guidance**, not absolute rankings
 SmartML limitations are intentional.
 
 It assumes:
+
 - Correct task selection
 - Clean datasets
 - Informed interpretation of results
 
 If strict validation, automation, or safety checks are required, SmartML may not be the appropriate tool.
-
-
