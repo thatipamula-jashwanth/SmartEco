@@ -8,7 +8,6 @@ edit_uri: edit/main/docs/
 
 theme:
   name: material
-
   language: en
 
   features:
@@ -61,13 +60,24 @@ nav:
       - Backend Strategy: products/smartknn/docs/backend-strategy.md
       - Prediction Logic: products/smartknn/docs/prediction-logic.md
       - Evaluation & Reporting: products/smartknn/docs/evaluation-reporting.md
-      - Benchmarks: products/smartknn/docs/Benchmarks.md
+      - Benchmarks: products/smartknn/docs/benchmarks.md
       - sklearn & Production: products/smartknn/docs/sklearn-production.md
       - When to Use / Not Use: products/smartknn/docs/when-to-use.md
       - Limitations: products/smartknn/docs/limitations.md
       - Installation: products/smartknn/docs/installation.md
       - FAQ: products/smartknn/docs/faq.md
       - Versioning: products/smartknn/docs/versioning.md
+
+  - SmartML:
+      - Overview: products/smartml/docs/index.md
+      - Architecture: products/smartml/docs/architecture.md
+      - Usage: products/smartml/docs/usage.md
+      - Encoding: products/smartml/docs/encoding.md
+      - Splitting: products/smartml/docs/splitting.md
+      - Benchmarking: products/smartml/docs/benchmarks.md
+      - Models: products/smartml/docs/models.md
+      - Limitations: products/smartml/docs/limitations.md
+      - FAQ: products/smartml/docs/faq.md
 
 markdown_extensions:
   - admonition

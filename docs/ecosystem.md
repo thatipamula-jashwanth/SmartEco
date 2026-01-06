@@ -49,6 +49,22 @@ SmartKNN serves as the reference implementation for SmartEco’s production engi
 
 ---
 
+### SmartML — Experimental / Infrastructure System
+
+SmartML is an experimental benchmarking and inspection system within SmartEco.
+
+It is designed to:
+- Compare machine learning and deep learning models under identical conditions
+- Measure accuracy, latency, and tail behavior using fixed defaults
+- Provide trustworthy baseline signals before production engineering begins
+
+SmartML is **not a production system** and **not AutoML**.  
+It exists to support research validation, experimental comparison, and transparent evaluation across the ecosystem.
+
+SmartML acts as shared infrastructure rather than a deployable model system.
+
+---
+
 ## Shared Infrastructure and Ideas
 
 While SmartEco systems are implemented independently, they share common ideas and tooling:

@@ -43,7 +43,21 @@ It extends classical KNN with:
 - Adaptive distance metrics  
 - Backend strategies optimized for low-latency execution  
 
-SmartKNN is built as a system, not a toy implementation — emphasizing predictability, explainability, and control over inference behavior.
+SmartKNN is built as a system, not a toy implementation, with a focus on predictability, explainability, and control over inference behavior.
+
+---
+
+### SmartML
+
+**SmartML** is a benchmarking and inspection toolkit used within the SmartEco ecosystem.
+
+It exists to:
+- Compare ML and DL models under identical conditions  
+- Measure accuracy, latency, and tail behavior  
+- Provide trustworthy baseline numbers before production work  
+
+SmartML is **not AutoML** and **not a production pipeline**.  
+It is designed to support **model-family selection** and benchmarking transparency.
 
 ---
 
@@ -73,7 +87,7 @@ All SmartEco systems follow a consistent set of engineering principles:
 SmartEco systems are evaluated using **transparent and reproducible methodologies** on real datasets.
 
 Benchmarks focus on:
-- Inference latency and tail behavior  
+- Inference latency (mean and p95)  
 - Stability under load  
 - Accuracy and recall trade-offs  
 
@@ -95,7 +109,7 @@ If your models need to run reliably on CPUs, meet latency guarantees, and remain
 ## Get Started
 
 - Explore **SmartKNN** and its documentation  
-- Review performance benchmarks and evaluation notes  
+- Review **SmartML** benchmarks and evaluation workflows  
 - Browse the source code on GitHub  
 
 SmartEco is actively evolving, with a focus on building systems that are **useful, understandable, and production-ready**.
