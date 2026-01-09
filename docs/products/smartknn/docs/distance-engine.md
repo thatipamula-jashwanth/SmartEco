@@ -13,10 +13,11 @@ The Distance Engine is responsible for a single task:
 > **Given two samples, compute a meaningful, stable, and consistent measure of similarity.**
 
 It does **not**:
- - Retrieve neighbors
- - Select backends
- - Perform prediction aggregation
- - Learn feature weights
+
+- Retrieve neighbors
+- Select backends
+- Perform prediction aggregation
+- Learn feature weights
 
 This strict separation ensures that distance behavior remains explicit, inspectable, and predictable.
 
@@ -36,13 +37,13 @@ A key property of this formulation is that **near-zero feature weights effective
 
 The Distance Engine is designed with production safety in mind and enforces several numerical guarantees:
 
- - **Float32-only execution**  
+- **Float32-only execution**  
   Ensures consistent performance characteristics and predictable memory usage.
 
- - **NaN and Inf sanitization**  
+- **NaN and Inf sanitization**  
   Invalid values are handled explicitly to prevent undefined behavior during distance computation.
 
- - **Epsilon-floored weights**  
+- **Epsilon-floored weights**  
   Feature weights are bounded away from zero to avoid numerical instability and degenerate distances.
 
 These safeguards ensure that distance computation remains stable even in noisy or imperfect real-world datasets.
@@ -56,9 +57,10 @@ Distance computation can be memory-intensive at scale.
 Before allocating large intermediate buffers or distance matrices, SmartKNN **estimates memory usage upfront** and fails fast if limits are exceeded. This prevents out-of-memory conditions and avoids partial or undefined execution states.
 
 Additional execution guarantees include:
- - **Contiguous memory enforcement** for efficient access patterns
- - Explicit control over allocation boundaries
- - Predictable memory footprint during inference
+
+- **Contiguous memory enforcement** for efficient access patterns
+- Explicit control over allocation boundaries
+- Predictable memory footprint during inference
 
 These constraints make distance computation safer to deploy in production services.
 
@@ -79,8 +81,9 @@ Parallelism affects **how fast distance is computed**, not **what distance means
 A core design requirement of the Distance Engine is **semantic consistency**.
 
 Whether SmartKNN uses:
- - Brute-force retrieval
- - Approximate nearest-neighbor backends
+
+- Brute-force retrieval
+- Approximate nearest-neighbor backends
 
 The definition and behavior of distance remain unchanged.
 
@@ -92,10 +95,10 @@ Backend choice influences *how candidates are retrieved*, not *how similarity is
 
 The Distance Engine interacts with other SmartKNN components in a strictly defined manner:
 
- - **Feature Weight Learning** determines feature importance
- - **Feature Pruning Engine** may suppress inactive dimensions
- - **Backend Strategy** supplies candidate neighbors
- - **Prediction Logic** consumes distance outputs
+- **Feature Weight Learning** determines feature importance
+- **Feature Pruning Engine** may suppress inactive dimensions
+- **Backend Strategy** supplies candidate neighbors
+- **Prediction Logic** consumes distance outputs
 
 At inference time, the Distance Engine operates independently and does not modify or depend on other components.
 

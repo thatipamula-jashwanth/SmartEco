@@ -17,9 +17,10 @@ SmartKNN works best when the following conditions apply.
 SmartKNN excels when predictions should be driven by **nearby, similar examples** rather than a global model.
 
 Typical cases include:
- - Tabular data with meaningful feature relationships
- - Problems where neighborhood structure matters
- - Situations where similar inputs should yield similar outputs
+
+- Tabular data with meaningful feature relationships
+- Problems where neighborhood structure matters
+- Situations where similar inputs should yield similar outputs
 
 ---
 
@@ -28,14 +29,16 @@ Typical cases include:
 SmartKNN is a good fit when you need to understand *why* a prediction was made.
 
 It provides:
- - Explicit neighbor contributions
- - Learned feature importance
- - Distance-aware decision logic
+
+- Explicit neighbor contributions
+- Learned feature importance
+- Distance-aware decision logic
 
 This makes SmartKNN suitable for:
- - Regulated environments
- - Debugging-heavy workflows
- - Trust-critical applications
+
+- Regulated environments
+- Debugging-heavy workflows
+- Trust-critical applications
 
 ---
 
@@ -44,9 +47,10 @@ This makes SmartKNN suitable for:
 SmartKNN is designed to run efficiently on CPUs without requiring GPUs.
 
 It is well suited for:
- - Edge deployments
- - Cost-sensitive production systems
- - Environments with limited or no GPU availability
+
+- Edge deployments
+- Cost-sensitive production systems
+- Environments with limited or no GPU availability
 
 ---
 
@@ -55,9 +59,10 @@ It is well suited for:
 SmartKNN prioritizes **stable and bounded latency**, including tail behavior (p95 / p99).
 
 Use SmartKNN when:
- - Real-time inference latency must be predictable
- - Spikes or jitter are unacceptable
- - Deterministic execution is required
+
+- Real-time inference latency must be predictable
+- Spikes or jitter are unacceptable
+- Deterministic execution is required
 
 ---
 
@@ -66,9 +71,10 @@ Use SmartKNN when:
 With automatic backend selection and ANN support, SmartKNN scales well from small datasets to millions of rows.
 
 It is a good choice when:
- - Dataset size is too large for naive KNN
- - You want to scale without changing prediction semantics
- - You want safe fallbacks if approximation quality degrades
+
+- Dataset size is too large for naive KNN
+- You want to scale without changing prediction semantics
+- You want safe fallbacks if approximation quality degrades
 
 ---
 
@@ -77,10 +83,11 @@ It is a good choice when:
 SmartKNN is designed to work well with minimal configuration.
 
 It automatically handles:
- - Feature scaling and sanitization
- - Feature weight learning
- - Feature pruning
- - Backend selection
+
+- Feature scaling and sanitization
+- Feature weight learning
+- Feature pruning
+- Backend selection
 
 This makes it suitable for fast iteration and reliable baselines.
 
@@ -97,8 +104,9 @@ SmartKNN is not a universal solution. Avoid it in the following cases.
 For very high-dimensional dense representations (e.g., raw embeddings with thousands of dimensions), nearest-neighbor methods can suffer from distance concentration.
 
 In such cases:
- - Neighborhood quality may degrade
- - Memory usage increases significantly
+
+- Neighborhood quality may degrade
+- Memory usage increases significantly
 
 Alternative approaches may be more appropriate.
 
@@ -109,8 +117,9 @@ Alternative approaches may be more appropriate.
 SmartKNN is a **local learner**.
 
 If your task requires:
- - Learning complex global decision boundaries
- - Strong extrapolation far from observed data
+
+- Learning complex global decision boundaries
+- Strong extrapolation far from observed data
 
 Then global models such as tree ensembles or neural networks may perform better.
 
@@ -121,9 +130,10 @@ Then global models such as tree ensembles or neural networks may perform better.
 SmartKNN does **not** perform online or incremental learning.
 
 It is not suitable when:
- - Model parameters must update continuously
- - Predictions depend on evolving state
- - Inference behavior must adapt per request
+
+- Model parameters must update continuously
+- Predictions depend on evolving state
+- Inference behavior must adapt per request
 
 SmartKNN favors frozen, deterministic inference.
 
@@ -142,8 +152,9 @@ Although SmartKNN includes memory safety checks and approximate backends, it may
 SmartKNN retains the training dataset as part of the model state.
 
 If deployment constraints require:
- - Very small model footprints
- - Minimal memory usage
+
+- Very small model footprints
+- Minimal memory usage
 
 Then parametric models may be a better fit.
 
@@ -152,16 +163,18 @@ Then parametric models may be a better fit.
 ## Summary
 
 ### SmartKNN is a strong choice when you need:
- - Local, similarity-driven predictions
- - Interpretable and explainable behavior
- - CPU-efficient, low-latency inference
- - Deterministic and production-safe execution
- - Scalable nearest-neighbor performance
+
+- Local, similarity-driven predictions
+- Interpretable and explainable behavior
+- CPU-efficient, low-latency inference
+- Deterministic and production-safe execution
+- Scalable nearest-neighbor performance
 
 ### SmartKNN is not ideal when you need:
- - Online or continual learning
- - Strong global generalization
- - Extremely compact model representations
- - Learning over extremely high-dimensional dense spaces
+
+- Online or continual learning
+- Strong global generalization
+- Extremely compact model representations
+- Learning over extremely high-dimensional dense spaces
 
 Choosing SmartKNN is a deliberate trade-off — favoring **clarity, control, and predictability** over opaque complexity.

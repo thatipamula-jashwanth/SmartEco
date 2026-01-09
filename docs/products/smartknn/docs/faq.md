@@ -11,11 +11,11 @@ If you are new to SmartKNN, this section helps clarify *why certain choices were
 SmartKNN treats nearest-neighbor learning as a **system**, not a single algorithm.
 
 Key differences include:
- - Learned feature importance instead of equal weighting
- - Feature pruning via weight thresholding
- - Distance-weighted regression and classification
- - Automatic backend selection (brute vs ANN)
- - Deterministic, production-safe inference
+- Learned feature importance instead of equal weighting
+- Feature pruning via weight thresholding
+- Distance-weighted regression and classification
+- Automatic backend selection (brute vs ANN)
+- Deterministic, production-safe inference
 
 Standard KNN typically applies a fixed distance metric and naive aggregation.
 
@@ -93,7 +93,7 @@ ANN affects **candidate retrieval only**.
 
 Once neighbors are retrieved:
  - Distance computation
- - Prediction aggregation 
+ - Prediction aggregation
  - Interpretability behavior
 
 remain identical to brute-force execution.
@@ -203,6 +203,6 @@ It is suitable for real-world production systems.
 ## **Where should I start?**
 
  - Read **Design Goals** and **Core Concepts** for intuition
- - Explore runnable examples in the repository
- - Use **Quickstart** for minimal setup
- - Review **Benchmarks** before deployment
+- Explore runnable examples in the repository
+- Use **Quickstart** for minimal setup
+- Review **Benchmarks** before deployment

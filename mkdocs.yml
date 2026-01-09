@@ -59,7 +59,6 @@ nav:
       - Distance Engine: products/smartknn/docs/distance-engine.md
       - Backend Strategy: products/smartknn/docs/backend-strategy.md
       - Prediction Logic: products/smartknn/docs/prediction-logic.md
-      - Evaluation & Reporting: products/smartknn/docs/evaluation-reporting.md
       - Benchmarks: products/smartknn/docs/benchmarks.md
       - sklearn & Production: products/smartknn/docs/sklearn-production.md
       - When to Use / Not Use: products/smartknn/docs/when-to-use.md

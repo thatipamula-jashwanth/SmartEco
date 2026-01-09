@@ -19,16 +19,17 @@ This release introduces a fully optimized, scalable system supporting both **cla
 
 ### Major Changes
 
- - Full **classification support restored**
- - Introduction of a scalable **ANN backend** for fast neighbor search
- - **Brute-force backend** retained and optimized for small datasets
- - Designed to scale to **millions of rows** with predictable latency
+- Full **classification support restored**
+- Introduction of a scalable **ANN backend** for fast neighbor search
+- **Brute-force backend** retained and optimized for small datasets
+- Designed to scale to **millions of rows** with predictable latency
 
 ---
 
 ### New Features
 
 #### Backend Architecture
+
 - **Approximate Nearest Neighbor (ANN) backend**
   - Optimized for large datasets
   - Optional GPU support for neighbor search
@@ -43,6 +44,7 @@ This release introduces a fully optimized, scalable system supporting both **cla
   - Automatic fallback to brute-force if ANN quality checks fail
 
 #### Core Capabilities
+
 - Full support for **classification and regression**
 - **Distance-weighted voting** for classification
 - **Distance-weighted local regression** for regression
@@ -50,6 +52,7 @@ This release introduces a fully optimized, scalable system supporting both **cla
 - Robust internal handling of **NaN / Inf values**
 
 #### Evaluation and Reporting
+
 - Unified automatic evaluation engine
 - Automatic task-type inference from target values
 - Built-in metrics:
