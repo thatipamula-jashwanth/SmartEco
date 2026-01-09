@@ -10,10 +10,10 @@ SmartKNN is designed to run efficiently on **CPU-only environments** and does no
 
 Before installing SmartKNN, ensure the following:
 
-- **Python**: 3.8 or newer
-- **Operating System**: Linux, macOS, or Windows
-- **Architecture**: x86_64 (ARM support may be limited)
-- **Memory**: Sufficient RAM for dataset size
+ - **Python**: 3.8 or newer
+ - **Operating System**: Linux, macOS, or Windows
+ - **Architecture**: x86_64 (ARM support may be limited)
+ - **Memory**: Sufficient RAM for dataset size
 
 SmartKNN does not require CUDA or GPU drivers.
 
@@ -94,13 +94,13 @@ python --version
 
 **Permission Errors**
 
-- Avoid global installs.
-- Always use a virtual environment if you encounter permission issues.
+ - Avoid global installs.
+ - Always use a virtual environment if you encounter permission issues.
 
 **Numba Compilation Warnings**
 
-- The first execution may trigger JIT compilation warnings.
-- This is expected and typically occurs only once per environment.
+ - The first execution may trigger JIT compilation warnings.
+ - This is expected and typically occurs only once per environment.
 
 ---
 

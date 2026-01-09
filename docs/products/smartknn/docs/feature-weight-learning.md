@@ -26,11 +26,11 @@ These signals are blended into a single, normalized importance vector that forms
 
 The feature weight learning engine is designed to be:
 
-- **Model-agnostic** — no assumptions about data distribution
-- **Fast and scalable** — suitable for large datasets
-- **Robust to noise and scale**
-- **Resistant to feature redundancy**
-- **Stable under subsampling**
+ - **Model-agnostic** — no assumptions about data distribution
+ - **Fast and scalable** — suitable for large datasets
+ - **Robust to noise and scale**
+ - **Resistant to feature redundancy**
+ - **Stable under subsampling**
 
 This allows SmartKNN to operate effectively across structured, tabular, and mixed datasets without brittle behavior.
 
@@ -42,18 +42,18 @@ All intermediate importance signals are normalized using a strict normalization 
 
 The normalization process guarantees:
 
-- Removal of NaN and infinite values
-- Clipping of all values to a small epsilon
-- Final normalization such that the weight vector sums to 1
+ - Removal of NaN and infinite values
+ - Clipping of all values to a small epsilon
+ - Final normalization such that the weight vector sums to 1
 
 \[
 \sum_i w_i = 1
 \]
 
 This ensures:
-- Comparability across signals
-- Stable downstream distance computation
-- No single feature can dominate catastrophically
+ - Comparability across signals
+ - Stable downstream distance computation
+ - No single feature can dominate catastrophically
 
 ---
 
@@ -74,9 +74,9 @@ w_i \propto \frac{1}{\text{MSE}_i}
 \]
 
 Properties:
-- Features with low predictive error receive higher weight
-- Constant or zero-variance features are excluded automatically
-- Captures linear, direct relationships efficiently
+ - Features with low predictive error receive higher weight
+ - Constant or zero-variance features are excluded automatically
+ - Captures linear, direct relationships efficiently
 
 This signal provides a fast and interpretable baseline importance estimate.
 
@@ -87,14 +87,14 @@ This signal provides a fast and interpretable baseline importance estimate.
 The second signal measures **statistical dependency** between each feature and the target using mutual information.
 
 Key properties:
-- Captures non-linear relationships
-- Invariant to monotonic transformations
-- Robust to feature scaling
+ - Captures non-linear relationships
+ - Invariant to monotonic transformations
+ - Robust to feature scaling
 
 Mutual information is estimated using:
-- Percentile-based binning
-- Joint histogram estimation
-- Controlled subsampling (to maintain scalability)
+ - Percentile-based binning
+ - Joint histogram estimation
+ - Controlled subsampling (to maintain scalability)
 
 This signal captures informational relevance even when linear correlation fails.
 
@@ -105,15 +105,15 @@ This signal captures informational relevance even when linear correlation fails.
 The third signal captures **non-linear interactions and hierarchical dependencies** using tree-based ensembles.
 
 This signal:
-- Identifies feature interactions
-- Captures non-linear split behavior
-- Models conditional importance structures
+ - Identifies feature interactions
+ - Captures non-linear split behavior
+ - Models conditional importance structures
 
 Design safeguards include:
-- Controlled subsampling for scalability
-- Randomized feature selection
-- Parallel execution
-- Graceful fallback to uniform weights if tree training fails
+ - Controlled subsampling for scalability
+ - Randomized feature selection
+ - Parallel execution
+ - Graceful fallback to uniform weights if tree training fails
 
 This signal complements purely statistical measures by modeling structural relationships.
 
@@ -128,9 +128,9 @@ w = \alpha \cdot w_{\text{MSE}} + \beta \cdot w_{\text{MI}} + \gamma \cdot w_{\t
 \]
 
 Where:
-- \(\alpha, \beta, \gamma \geq 0\)
-- Default values: **0.4 / 0.3 / 0.3**
-- The final vector is normalized to sum to 1
+ - \(\alpha, \beta, \gamma \geq 0\)
+ - Default values: **0.4 / 0.3 / 0.3**
+ - The final vector is normalized to sum to 1
 
 This ensemble-style blending balances complementary signals into a single, stable importance estimate.
 
@@ -154,11 +154,11 @@ Blending these signals yields **more stable and generalizable feature weights** 
 
 The feature weight learning engine explicitly guards against:
 
-- Constant or degenerate features
-- Heavy-tailed distributions
-- Extremely large datasets (via subsampling)
-- Tree model instability
-- Weight collapse (via epsilon flooring)
+ - Constant or degenerate features
+ - Heavy-tailed distributions
+ - Extremely large datasets (via subsampling)
+ - Tree model instability
+ - Weight collapse (via epsilon flooring)
 
 These safeguards ensure that feature weight learning is **fail-safe rather than brittle**, even in imperfect real-world data.
 
@@ -168,10 +168,10 @@ These safeguards ensure that feature weight learning is **fail-safe rather than 
 
 The learned feature weights produced by this engine:
 
-- Directly define the distance metric
-- Influence neighborhood structure
-- Improve robustness and interpretability
-- Remain fixed during inference
+ - Directly define the distance metric
+ - Influence neighborhood structure
+ - Improve robustness and interpretability
+ - Remain fixed during inference
 
 Once learned, feature weights are treated as immutable configuration, ensuring deterministic and predictable prediction behavior.
 

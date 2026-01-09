@@ -11,15 +11,15 @@ SmartKNN is built as a **system**, not a toy algorithm - with explicit control o
 ## What Problem Does SmartKNN Solve?
 
 Traditional KNN has well-known strengths:
-- Simple and transparent decision logic
-- Strong performance on many real-world datasets
-- Natural interpretability
+ - Simple and transparent decision logic
+ - Strong performance on many real-world datasets
+ - Natural interpretability
 
 However, it breaks down in production due to:
-- Poor scalability at inference time
-- Uniform treatment of all features
-- Unpredictable latency under load
-- Limited control over distance behavior
+ - Poor scalability at inference time
+ - Uniform treatment of all features
+ - Unpredictable latency under load
+ - Limited control over distance behavior
 
 SmartKNN addresses these limitations while preserving the core advantages of nearest-neighbor learning.
 
@@ -52,9 +52,9 @@ Predictions are explainable in terms of neighbor influence, feature contribution
 SmartKNN is the **primary production-ready system** within the SmartEco ecosystem.
 
 It serves as:
-- A reference implementation for SmartEco’s production engineering standards
-- A stable system for real-world deployment
-- A foundation for ideas that may later migrate into other systems
+ - A reference implementation for SmartEco’s production engineering standards
+ - A stable system for real-world deployment
+ - A foundation for ideas that may later migrate into other systems
 
 SmartKNN prioritizes reliability, transparency, and operational clarity over experimental novelty.
 
@@ -65,9 +65,9 @@ SmartKNN prioritizes reliability, transparency, and operational clarity over exp
 SmartKNN is evaluated using transparent and reproducible methodologies focused on real-world constraints.
 
 Benchmarks emphasize:
-- Inference latency, including tail behavior
-- Stability under sustained load
-- Accuracy and recall trade-offs
+ - Inference latency, including tail behavior
+ - Stability under sustained load
+ - Accuracy and recall trade-offs
 
 Detailed benchmark results and evaluation methodology are documented separately.
 
@@ -76,9 +76,9 @@ Detailed benchmark results and evaluation methodology are documented separately.
 ## Documentation and Usage
 
 To explore SmartKNN in depth:
-- Read the documentation for design details and algorithms
-- Review installation and quickstart guides
-- Examine limitations and recommended use cases before deployment
+ - Read the documentation for design details and algorithms
+ - Review installation and quickstart guides
+ - Examine limitations and recommended use cases before deployment
 
 SmartKNN follows a documented versioning strategy to ensure stability as the system evolves.
 
@@ -86,8 +86,8 @@ SmartKNN follows a documented versioning strategy to ensure stability as the sys
 
 ## Get Started
 
-- Read the **SmartKNN Documentation**
-- View **Benchmarks**
-- Browse the **Source Code**
+ - Read the **SmartKNN Documentation**
+ - View **Benchmarks**
+ - Browse the **Source Code**
 
 SmartKNN is actively developed as part of the SmartEco ecosystem, with a focus on building a nearest-neighbors system that is **practical, understandable, and production-ready**.

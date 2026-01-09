@@ -15,9 +15,9 @@ SmartKNN includes feature weighting, pruning, and learned distance scaling.
 However, nearest-neighbor methods can still degrade in **very high-dimensional dense spaces**.
 
 Potential challenges include:
-- Distance concentration effects
-- Increased memory footprint
-- Reduced neighborhood discrimination
+ - Distance concentration effects
+ - Increased memory footprint
+ - Reduced neighborhood discrimination
 
 SmartKNN mitigates these effects, but for extremely high-dimensional dense representations, alternative modeling approaches may be more suitable.
 
@@ -28,9 +28,9 @@ SmartKNN mitigates these effects, but for extremely high-dimensional dense repre
 Nearest-neighbor methods inherently require storing training data in memory.
 
 SmartKNN includes:
-- Memory usage estimation
-- Fail-fast checks to prevent OOM conditions
-- Support for approximate backends
+ - Memory usage estimation
+ - Fail-fast checks to prevent OOM conditions
+ - Support for approximate backends
 
 Even with these safeguards, very large datasets may still require substantial RAM, particularly when exact (brute-force) execution is used.
 
@@ -43,9 +43,9 @@ Memory requirements should be evaluated as part of deployment planning.
 When using approximate nearest-neighbor (ANN) backends, SmartKNN introduces controlled approximation.
 
 This may result in:
-- Slight changes in neighbor ordering
-- Small accuracy trade-offs
-- Sensitivity to backend parameters
+ - Slight changes in neighbor ordering
+ - Small accuracy trade-offs
+ - Sensitivity to backend parameters
 
 ANN backends are designed to balance speed and accuracy.  
 They improve scalability but do not guarantee exact neighbor retrieval.
@@ -57,9 +57,9 @@ They improve scalability but do not guarantee exact neighbor retrieval.
 SmartKNN is not intended to replace all machine learning models.
 
 In particular:
-- Problems requiring strong global generalization may favor other approaches
-- Highly non-linear decision boundaries may be better handled by tree-based or neural models
-- Very small datasets may not benefit significantly from nearest-neighbor methods
+ - Problems requiring strong global generalization may favor other approaches
+ - Highly non-linear decision boundaries may be better handled by tree-based or neural models
+ - Very small datasets may not benefit significantly from nearest-neighbor methods
 
 Model selection should always reflect problem structure and constraints.
 
@@ -70,9 +70,9 @@ Model selection should always reflect problem structure and constraints.
 SmartKNN performs all learning and analysis during a configuration phase.
 
 On very large datasets, steps such as:
-- Feature weight estimation
-- Backend preparation
-- Optional pruning
+ - Feature weight estimation
+ - Backend preparation
+ - Optional pruning
 
 may incur noticeable upfront cost.
 
@@ -83,9 +83,9 @@ SmartKNN mitigates this through subsampling, bounded computation, and safe fallb
 ## No Online or Continual Learning
 
 SmartKNN does not support:
-- Online learning
-- Incremental updates during inference
-- Continuous adaptation to streaming data
+ - Online learning
+ - Incremental updates during inference
+ - Continuous adaptation to streaming data
 
 All configuration is completed before inference begins.  
 For continuously evolving data streams, alternative approaches may be more appropriate.
@@ -95,14 +95,14 @@ For continuously evolving data streams, alternative approaches may be more appro
 ## Hardware and Deployment Constraints
 
 SmartKNN is optimized for CPU execution and includes internal handling for:
-- Feature scaling
-- Clipping
-- Numerical sanitization
+ - Feature scaling
+ - Clipping
+ - Numerical sanitization
 
 Performance still depends on:
-- Available memory
-- CPU cache behavior
-- Core count and threading configuration
+ - Available memory
+ - CPU cache behavior
+ - Core count and threading configuration
 
 Extremely constrained environments may require careful tuning or simplified configurations.
 
@@ -113,9 +113,9 @@ Extremely constrained environments may require careful tuning or simplified conf
 SmartKNN handles many low-level concerns internally, including scaling and numerical safety.
 
 Its limitations arise primarily from:
-- The fundamental properties of nearest-neighbor methods
-- Memory requirements at scale
-- Trade-offs introduced by approximation
-- Explicit design choices favoring determinism and safety
+ - The fundamental properties of nearest-neighbor methods
+ - Memory requirements at scale
+ - Trade-offs introduced by approximation
+ - Explicit design choices favoring determinism and safety
 
 Understanding these constraints ensures appropriate usage and reliable deployment.

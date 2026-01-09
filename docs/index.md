@@ -5,9 +5,9 @@
 Most modern ML stacks optimize for benchmark accuracy while quietly ignoring **latency, predictability, and operational constraints**. SmartEco treats machine learning as a **systems engineering problem**, not just a modeling exercise.
 
 The focus is on:
-- **CPU-efficient inference**  
-- **Explicit algorithmic control**  
-- **Clearly documented trade-offs**  
+ - **CPU-efficient inference**  
+ - **Explicit algorithmic control**  
+ - **Clearly documented trade-offs**  
 
 Engineers can reason about performance, reliability, and explainability in production.
 
@@ -17,18 +17,18 @@ Engineers can reason about performance, reliability, and explainability in produ
 
 Real production environments come with constraints that most ML tooling assumes away:
 
-- Limited or no GPU availability  
-- Latency-critical inference paths  
-- Strict requirements for stability, debuggability, and explainability  
+ - Limited or no GPU availability  
+ - Latency-critical inference paths  
+ - Strict requirements for stability, debuggability, and explainability  
 
 Accuracy alone is not enough.  
 A model that cannot meet latency guarantees or explain its behavior is not production-ready.
 
 SmartEco exists to address these realities by providing **algorithm-centric systems** that prioritize:
 
-- Predictable and measurable performance  
-- Interpretable decision logic  
-- Practical scalability on commodity hardware  
+ - Predictable and measurable performance  
+ - Interpretable decision logic  
+ - Practical scalability on commodity hardware  
 
 ---
 
@@ -43,15 +43,15 @@ It is a growing collection of **purpose-built machine learning systems**, each d
 
 It extends classical KNN with:
 
-- Learned feature importance and weighting  
-- Adaptive distance metrics  
-- Multiple backend strategies optimized for low-latency execution  
+ - Learned feature importance and weighting  
+ - Adaptive distance metrics  
+ - Multiple backend strategies optimized for low-latency execution  
 
 SmartKNN is built as a system, not a toy implementation, with a focus on:
 
-- Predictability  
-- Explainability  
-- Control over inference behavior  
+ - Predictability  
+ - Explainability  
+ - Control over inference behavior  
 
 It serves as the reference production system within SmartEco.
 
@@ -63,9 +63,9 @@ It serves as the reference production system within SmartEco.
 
 It exists to:
 
-- Compare ML and DL models under identical conditions  
-- Measure accuracy, latency, and tail behavior  
-- Provide trustworthy baseline numbers before production deployment  
+ - Compare ML and DL models under identical conditions  
+ - Measure accuracy, latency, and tail behavior  
+ - Provide trustworthy baseline numbers before production deployment  
 
 SmartML is **not AutoML** and **not a production pipeline**.  
 It supports **model-family selection**, experimental validation, and benchmarking transparency.
@@ -93,19 +93,19 @@ SmartEco systems generally fall into three categories, based on maturity and int
 
 All SmartEco systems follow consistent engineering principles:
 
-- **CPU-first by design**  
+ - **CPU-first by design**  
   Optimized for real-world hardware, not idealized GPU environments.
 
-- **Latency-aware engineering**  
+ - **Latency-aware engineering**  
   Mean latency matters — but p95 and p99 are treated as first-class metrics.
 
-- **Interpretability over opacity**  
+ - **Interpretability over opacity**  
   Systems explain *why* a decision was made, not just return a score.
 
-- **Explicit algorithms, not magic abstractions**  
+ - **Explicit algorithms, not magic abstractions**  
   Predictable behavior, debuggability, and transparency are prioritized.
 
-- **Honest trade-offs**  
+ - **Honest trade-offs**  
   Limitations and design decisions are documented clearly.
 
 ---
@@ -114,10 +114,10 @@ All SmartEco systems follow consistent engineering principles:
 
 While systems are independent, SmartEco provides shared concepts and tooling:
 
-- Consistent evaluation practices  
-- Shared performance metrics (latency, tail behavior, stability)  
-- Reusable algorithmic components (distance computation, feature weighting, pruning)  
-- Common expectations around transparency and debuggability  
+ - Consistent evaluation practices  
+ - Shared performance metrics (latency, tail behavior, stability)  
+ - Reusable algorithmic components (distance computation, feature weighting, pruning)  
+ - Common expectations around transparency and debuggability  
 
 This foundation allows successful ideas to migrate between systems without forcing premature unification.
 
@@ -141,9 +141,9 @@ SmartEco systems are evaluated using **transparent and reproducible methodologie
 
 Benchmarks focus on:
 
-- Inference latency (mean, p95, p99)  
-- Stability under realistic load  
-- Accuracy and recall trade-offs  
+ - Inference latency (mean, p95, p99)  
+ - Stability under realistic load  
+ - Accuracy and recall trade-offs  
 
 Detailed benchmark results, evaluation scripts, and methodology are available in the respective system documentation.
 
@@ -153,9 +153,9 @@ Detailed benchmark results, evaluation scripts, and methodology are available in
 
 SmartEco is built for:
 
-- Engineers deploying models in real services  
-- Teams operating under latency and infrastructure constraints  
-- Practitioners who value explainability and system behavior over black-box performance  
+ - Engineers deploying models in real services  
+ - Teams operating under latency and infrastructure constraints  
+ - Practitioners who value explainability and system behavior over black-box performance  
 
 If your models must run reliably on CPUs, meet latency guarantees, and remain interpretable — SmartEco is designed for you.
 
@@ -163,8 +163,8 @@ If your models must run reliably on CPUs, meet latency guarantees, and remain in
 
 ## Getting Started
 
-- Explore **SmartKNN** and its documentation  
-- Review **SmartML** benchmarks and evaluation workflows  
-- Browse the source code on GitHub  
+ - Explore **SmartKNN** and its documentation  
+ - Review **SmartML** benchmarks and evaluation workflows  
+ - Browse the source code on GitHub  
 
 SmartEco is actively evolving, with a focus on building systems that are **useful, understandable, and production-ready**.

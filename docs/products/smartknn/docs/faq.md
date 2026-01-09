@@ -11,11 +11,11 @@ If you are new to SmartKNN, this section helps clarify *why certain choices were
 SmartKNN treats nearest-neighbor learning as a **system**, not a single algorithm.
 
 Key differences include:
-- Learned feature importance instead of equal weighting
-- Feature pruning via weight thresholding
-- Distance-weighted regression and classification
-- Automatic backend selection (brute vs ANN)
-- Deterministic, production-safe inference
+ - Learned feature importance instead of equal weighting
+ - Feature pruning via weight thresholding
+ - Distance-weighted regression and classification
+ - Automatic backend selection (brute vs ANN)
+ - Deterministic, production-safe inference
 
 Standard KNN typically applies a fixed distance metric and naive aggregation.
 
@@ -26,9 +26,9 @@ Standard KNN typically applies a fixed distance metric and naive aggregation.
 No.
 
 SmartKNN handles internally:
-- Feature normalization
-- NaN and Inf sanitization
-- Numerical stability safeguards
+ - Feature normalization
+ - NaN and Inf sanitization
+ - Numerical stability safeguards
 
 Users can provide raw numeric features directly.
 
@@ -53,9 +53,9 @@ SmartKNN **intentionally does not support online or continual learning**.
 
 All learning occurs during `fit()`.  
 Inference uses a frozen configuration to guarantee:
-- Predictable latency
-- Deterministic outputs
-- Stable interpretability
+ - Predictable latency
+ - Deterministic outputs
+ - Stable interpretability
 
 For streaming or continuously adapting systems, SmartKNN is not the right tool.
 
@@ -64,9 +64,9 @@ For streaming or continuously adapting systems, SmartKNN is not the right tool.
 ## **How does SmartKNN handle large datasets?**
 
 SmartKNN supports large datasets through:
-- Automatic backend selection
-- Approximate Nearest Neighbor (ANN) backends
-- Safe fallback to brute-force when ANN quality is insufficient
+ - Automatic backend selection
+ - Approximate Nearest Neighbor (ANN) backends
+ - Safe fallback to brute-force when ANN quality is insufficient
 
 Backend choice affects *how neighbors are retrieved*, not *how predictions are computed*.
 
@@ -77,9 +77,9 @@ Backend choice affects *how neighbors are retrieved*, not *how predictions are c
 Not always.
 
 SmartKNN may:
-- Use brute-force for small or medium datasets
-- Use ANN for large datasets
-- Fall back to brute-force if ANN quality checks fail
+ - Use brute-force for small or medium datasets
+ - Use ANN for large datasets
+ - Fall back to brute-force if ANN quality checks fail
 
 This behavior is automatic and designed to preserve prediction correctness.
 
@@ -92,9 +92,9 @@ No.
 ANN affects **candidate retrieval only**.
 
 Once neighbors are retrieved:
-- Distance computation
-- Prediction aggregation
-- Interpretability behavior
+ - Distance computation
+ - Prediction aggregation 
+ - Interpretability behavior
 
 remain identical to brute-force execution.
 
@@ -104,9 +104,9 @@ remain identical to brute-force execution.
 
 Regression uses **distance-weighted local regression**.
 
-- Feature weights influence distance computation
-- Neighbor influence is proportional to inverse distance
-- Predictions are normalized and numerically stable
+ - Feature weights influence distance computation
+ - Neighbor influence is proportional to inverse distance
+ - Predictions are normalized and numerically stable
 
 This produces smooth, locally adaptive predictions.
 
@@ -116,9 +116,9 @@ This produces smooth, locally adaptive predictions.
 
 Classification uses **distance-weighted class voting**.
 
-- Each neighbor contributes a vote weighted by distance
-- Votes are accumulated per class
-- The class with the highest total weight is selected
+ - Each neighbor contributes a vote weighted by distance
+ - Votes are accumulated per class
+ - The class with the highest total weight is selected
 
 This avoids brittle majority voting and improves minority-class recall.
 
@@ -129,9 +129,9 @@ This avoids brittle majority voting and improves minority-class recall.
 Yes.
 
 Given:
-- Identical data
-- Identical configuration
-- Identical backend
+ - Identical data
+ - Identical configuration
+ - Identical backend
 
 SmartKNN produces identical predictions across runs.
 
@@ -144,10 +144,10 @@ No randomness or hidden state is introduced during inference.
 Yes.
 
 SmartKNN implements standard sklearn-style methods:
-- `fit`
-- `predict`
-- `get_params`
-- `set_params`
+ - `fit`
+ - `predict`
+ - `get_params`
+ - `set_params`
 
 It can be used in sklearn pipelines and evaluation workflows.
 
@@ -166,9 +166,9 @@ GPU support, when available, is limited to neighbor search in ANN backends and i
 ## **What types of data does SmartKNN support?**
 
 SmartKNN is best suited for:
-- Numeric tabular data
-- Structured datasets
-- Problems with meaningful feature similarity
+ - Numeric tabular data
+ - Structured datasets
+ - Problems with meaningful feature similarity
 
 It is not designed for raw text, images, or unstructured data without prior feature extraction.
 
@@ -177,10 +177,10 @@ It is not designed for raw text, images, or unstructured data without prior feat
 ## **When should I NOT use SmartKNN?**
 
 Avoid SmartKNN if:
-- You require online learning
-- Your data is extremely high-dimensional and dense
-- You need a very small model footprint
-- Strong global generalization is required
+ - You require online learning
+ - Your data is extremely high-dimensional and dense
+ - You need a very small model footprint
+ - Strong global generalization is required
 
 See **When to Use / When Not Use** for details.
 
@@ -191,10 +191,10 @@ See **When to Use / When Not Use** for details.
 Yes.
 
 SmartKNN is designed with:
-- Deterministic inference
-- Memory safety checks
-- Explicit backend control
-- Serialization-safe model state
+ - Deterministic inference
+ - Memory safety checks
+ - Explicit backend control
+ - Serialization-safe model state
 
 It is suitable for real-world production systems.
 
@@ -202,7 +202,7 @@ It is suitable for real-world production systems.
 
 ## **Where should I start?**
 
-- Read **Design Goals** and **Core Concepts** for intuition
-- Explore runnable examples in the repository
-- Use **Quickstart** for minimal setup
-- Review **Benchmarks** before deployment
+ - Read **Design Goals** and **Core Concepts** for intuition
+ - Explore runnable examples in the repository
+ - Use **Quickstart** for minimal setup
+ - Review **Benchmarks** before deployment

@@ -19,10 +19,10 @@ This release introduces a fully optimized, scalable system supporting both **cla
 
 ### Major Changes
 
-- Full **classification support restored**
-- Introduction of a scalable **ANN backend** for fast neighbor search
-- **Brute-force backend** retained and optimized for small datasets
-- Designed to scale to **millions of rows** with predictable latency
+ - Full **classification support restored**
+ - Introduction of a scalable **ANN backend** for fast neighbor search
+ - **Brute-force backend** retained and optimized for small datasets
+ - Designed to scale to **millions of rows** with predictable latency
 
 ---
 

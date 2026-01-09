@@ -13,10 +13,10 @@ Different machine learning problems demand different trade-offs.
 A system optimized for ultra-low latency may require very different design decisions than one optimized for flexibility or experimental exploration. SmartEco acknowledges this reality by treating each major capability as a **first-class system**, not a feature toggle inside a monolithic library.
 
 This approach provides:
-- Clear system boundaries
-- Explicit design intent
-- Independent evolution paths
-- Better long-term maintainability
+ - Clear system boundaries
+ - Explicit design intent
+ - Independent evolution paths
+ - Better long-term maintainability
 
 ---
 
@@ -25,16 +25,16 @@ This approach provides:
 SmartEco systems generally fall into one of three categories, based on maturity and intended use.
 
 ### Research Systems
-- Focus on exploring new algorithmic ideas, performance boundaries, or theoretical approaches.
-- Prioritize experimentation and insight over immediate production deployment.
+ - Focus on exploring new algorithmic ideas, performance boundaries, or theoretical approaches.
+ - Prioritize experimentation and insight over immediate production deployment.
 
 ### Experimental Systems
-- Validate whether research ideas can operate under realistic constraints such as memory limits, latency targets, and stability requirements.
-- Bridge the gap between research and production readiness.
+ - Validate whether research ideas can operate under realistic constraints such as memory limits, latency targets, and stability requirements.
+ - Bridge the gap between research and production readiness.
 
 ### Production Systems
-- Hardened systems with stable APIs, documentation, benchmarks, and clearly defined limitations.
-- Intended for real-world deployment.
+ - Hardened systems with stable APIs, documentation, benchmarks, and clearly defined limitations.
+ - Intended for real-world deployment.
 
 > Not all research systems are expected to become production systems — that separation is intentional.
 
@@ -47,14 +47,14 @@ SmartEco systems generally fall into one of three categories, based on maturity 
 SmartKNN is the primary production-ready system within SmartEco.
 
 It focuses on nearest-neighbor–based learning under practical constraints such as:
-- CPU-only execution
-- Predictable latency
-- Interpretability
+ - CPU-only execution
+ - Predictable latency
+ - Interpretability
 
 SmartKNN incorporates:
-- Learned feature weighting
-- Adaptive distance computation
-- Multiple backend strategies
+ - Learned feature weighting
+ - Adaptive distance computation
+ - Multiple backend strategies
 
 It preserves a stable and transparent API, serving as the reference implementation for SmartEco’s production engineering standards.
 
@@ -65,9 +65,9 @@ It preserves a stable and transparent API, serving as the reference implementati
 SmartML is an experimental benchmarking and inspection system within SmartEco.
 
 It is designed to:
-- Compare machine learning and deep learning models under identical conditions
-- Measure accuracy, latency, and tail behavior using fixed defaults
-- Provide trustworthy baseline signals before production engineering begins
+ - Compare machine learning and deep learning models under identical conditions
+ - Measure accuracy, latency, and tail behavior using fixed defaults
+ - Provide trustworthy baseline signals before production engineering begins
 
 SmartML is **not a production system** and **not AutoML**.  
 It exists to support research validation, experimental comparison, and transparent evaluation across the ecosystem.
@@ -80,10 +80,10 @@ SmartML acts as shared infrastructure rather than a deployable model system.
 
 While SmartEco systems are implemented independently, they share common ideas and tooling:
 
-- Consistent evaluation practices
-- Shared performance metrics (latency, tail behavior, stability)
-- Reusable algorithmic concepts (distance computation, weighting, pruning)
-- Common expectations around transparency and debuggability
+ - Consistent evaluation practices
+ - Shared performance metrics (latency, tail behavior, stability)
+ - Reusable algorithmic concepts (distance computation, weighting, pruning)
+ - Common expectations around transparency and debuggability
 
 This shared foundation allows successful ideas to migrate between systems without forcing premature unification.
 
@@ -105,8 +105,8 @@ This progression ensures production systems remain reliable, understandable, and
 ## Navigating the Ecosystem
 
 If you are new to SmartEco:
-- Start with **SmartKNN** for a production-ready system
-- Explore documentation to understand system-level design decisions
-- Review benchmarks and evaluation methodology before deployment
+ - Start with **SmartKNN** for a production-ready system
+ - Explore documentation to understand system-level design decisions
+ - Review benchmarks and evaluation methodology before deployment
 
 Each system documents its scope, goals, and limitations explicitly to help users choose the right tool for their needs.

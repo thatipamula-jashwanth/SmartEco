@@ -10,16 +10,16 @@ The goal of these benchmarks is not to win leaderboard competitions, but to eval
 
 SmartKNN benchmarks are designed around the following principles:
 
-- **CPU-first evaluation**  
+ - **CPU-first evaluation**  
   All benchmarks are conducted on commodity CPU hardware without GPU acceleration.
 
-- **Latency-aware measurement**  
+ - **Latency-aware measurement**  
   Mean latency is reported, but tail latency (p95 and p99) is treated as a first-class metric.
 
-- **Realistic workloads**  
+ - **Realistic workloads**  
   Benchmarks use real-world datasets and inference patterns rather than synthetic or toy setups.
 
-- **Transparent trade-offs**  
+ - **Transparent trade-offs**  
   No system is optimal for all scenarios. Performance benefits and limitations are reported explicitly.
 
 ---
@@ -28,15 +28,15 @@ SmartKNN benchmarks are designed around the following principles:
 
 Benchmarks are conducted using a consistent and reproducible methodology:
 
-- **Hardware**: Commodity x86 CPU (exact configuration documented per run)
-- **Execution modes**:
+ - **Hardware**: Commodity x86 CPU (exact configuration documented per run)
+ - **Execution modes**:
   - Single-sample inference
   - Batch inference
-- **Metrics**:
+ - **Metrics**:
   - Accuracy / F1 score (task-dependent)
   - Mean inference latency
   - p95 inference latency
-- **Baselines**:
+ - **Baselines**:
   - Classical KNN
   - Linear models
   - Tree-based models (where applicable)
@@ -66,10 +66,10 @@ Detailed per-dataset results and raw measurements are available in the full benc
 
 Across evaluated workloads:
 
-- SmartKNN delivers **predictable inference latency**, often operating in the sub-millisecond range on commodity CPUs depending on configuration.
-- Learned feature weighting improves robustness on noisy and high-dimensional datasets.
-- Approximate execution backends reduce latency at scale, with a tunable accuracy trade-off.
-- Tree-based models may achieve higher peak accuracy on some datasets, but frequently exhibit higher or less predictable tail latency on CPU.
+ - SmartKNN delivers **predictable inference latency**, often operating in the sub-millisecond range on commodity CPUs depending on configuration.
+ - Learned feature weighting improves robustness on noisy and high-dimensional datasets.
+ - Approximate execution backends reduce latency at scale, with a tunable accuracy trade-off.
+ - Tree-based models may achieve higher peak accuracy on some datasets, but frequently exhibit higher or less predictable tail latency on CPU.
 
 ---
 
@@ -77,9 +77,9 @@ Across evaluated workloads:
 
 SmartKNN is not always the optimal choice:
 
-- On very small datasets, simpler models may be faster due to lower overhead.
-- On highly nonlinear problems, tree-based or neural models may outperform in accuracy.
-- Approximate backends introduce controlled approximation error that must be tuned carefully.
+ - On very small datasets, simpler models may be faster due to lower overhead.
+ - On highly nonlinear problems, tree-based or neural models may outperform in accuracy.
+ - Approximate backends introduce controlled approximation error that must be tuned carefully.
 
 These trade-offs are documented to support informed system design decisions.
 
