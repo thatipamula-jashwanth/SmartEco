@@ -39,7 +39,8 @@ Weak or irrelevant features can be explicitly down-weighted or excluded, enforci
 Distance computation is treated as a first-class component, allowing similarity behavior to adapt to the problem rather than relying on fixed metrics.
 
 ### Backend Strategy
-SmartKNN supports multiple execution backends - including brute-force and approximate nearest-neighbor strategies - while preserving consistent prediction semantics and APIs.
+SmartKNN supports multiple execution backends 
+ - including brute-force and approximate nearest-neighbor strategies - while preserving consistent prediction semantics and APIs.
 
 ### CPU-Optimized Inference
 Inference is optimized for commodity CPUs, with a focus on predictable mean and tail latency.
