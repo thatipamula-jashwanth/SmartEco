@@ -69,7 +69,7 @@ When an ANN backend is enabled, SmartKNN performs a **sanity validation step** t
 ### Validation Mechanism
 
 - ANN-retrieved neighbors are evaluated against expected prediction behavior
-- A quality score (e.g. **R²**) is computed
+- A quality score (e.g., **R²**) is computed
 - The score is compared against a configurable threshold: `ann_min_r2`
 
 ### Automatic Fallback

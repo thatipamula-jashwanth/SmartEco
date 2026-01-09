@@ -2,7 +2,7 @@
 
 SmartKNN is designed as a **system-level implementation of nearest-neighbor learning**, with explicit separation between configuration-time logic and runtime execution.
 
-This page describes **how SmartKNN is structured as a system** - defining component boundaries, execution phases, and responsibilities - rather than the step-by-step algorithmic flow.
+This page describes **how SmartKNN is structured as a system**—defining component boundaries, execution phases, and responsibilities—rather than the step-by-step algorithmic flow.
 
 ---
 
@@ -45,7 +45,7 @@ It owns:
 - Distance scaling and normalization
 - Consistent distance behavior across backends
 
-This layer does not perform neighbor retrieval or prediction logic.  
+This layer does **not** perform neighbor retrieval or prediction logic.  
 Its sole responsibility is defining **how distance is measured**.
 
 ---
@@ -59,7 +59,7 @@ It owns:
 - Indexing or data organization strategies
 - Performance characteristics related to scale
 
-This layer is interchangeable and does not influence prediction semantics - only how candidates are retrieved.
+This layer is interchangeable and does not influence prediction semantics—only how candidates are retrieved.
 
 ---
 
@@ -72,7 +72,7 @@ It owns:
 - Prediction computation
 - Optional interpretability and reporting outputs
 
-It does not perform learning, backend selection, or distance configuration.
+It does **not** perform learning, backend selection, or distance configuration.
 
 ---
 

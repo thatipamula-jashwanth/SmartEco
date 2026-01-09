@@ -4,7 +4,12 @@
 
 Most modern ML stacks optimize for benchmark accuracy while quietly ignoring **latency, predictability, and operational constraints**. SmartEco treats machine learning as a **systems engineering problem**, not just a modeling exercise.
 
-The focus is on **CPU-efficient inference**, **explicit algorithmic control**, and **clearly documented trade-offs** that engineers can reason about and trust in production.
+The focus is on:
+- **CPU-efficient inference**  
+- **Explicit algorithmic control**  
+- **Clearly documented trade-offs**  
+
+Engineers can reason about performance, reliability, and explainability in production.
 
 ---
 
@@ -19,9 +24,7 @@ Real production environments come with constraints that most ML tooling assumes 
 Accuracy alone is not enough.  
 A model that cannot meet latency guarantees or explain its behavior is not production-ready.
 
-SmartEco exists to address these realities.
-
-Instead of opaque abstractions and heavy runtime dependencies, SmartEco provides **algorithm-centric systems** that prioritize:
+SmartEco exists to address these realities by providing **algorithm-centric systems** that prioritize:
 
 - Predictable and measurable performance  
 - Interpretable decision logic  
@@ -34,51 +37,101 @@ Instead of opaque abstractions and heavy runtime dependencies, SmartEco provides
 SmartEco is not a single model or library.  
 It is a growing collection of **purpose-built machine learning systems**, each designed around clear engineering constraints.
 
-### SmartKNN
+### SmartKNN — Production System
 
 **SmartKNN** is a modern nearest-neighbors engine designed for **fast, transparent, CPU-first inference**.
 
 It extends classical KNN with:
+
 - Learned feature importance and weighting  
 - Adaptive distance metrics  
-- Backend strategies optimized for low-latency execution  
+- Multiple backend strategies optimized for low-latency execution  
 
-SmartKNN is built as a system, not a toy implementation, with a focus on predictability, explainability, and control over inference behavior.
+SmartKNN is built as a system, not a toy implementation, with a focus on:
+
+- Predictability  
+- Explainability  
+- Control over inference behavior  
+
+It serves as the reference production system within SmartEco.
 
 ---
 
-### SmartML
+### SmartML — Experimental / Infrastructure System
 
-**SmartML** is a benchmarking and inspection toolkit used within the SmartEco ecosystem.
+**SmartML** is a benchmarking and inspection toolkit within SmartEco.
 
 It exists to:
+
 - Compare ML and DL models under identical conditions  
 - Measure accuracy, latency, and tail behavior  
-- Provide trustworthy baseline numbers before production work  
+- Provide trustworthy baseline numbers before production deployment  
 
 SmartML is **not AutoML** and **not a production pipeline**.  
-It is designed to support **model-family selection** and benchmarking transparency.
+It supports **model-family selection**, experimental validation, and benchmarking transparency.
+
+---
+
+## System Categories in SmartEco
+
+SmartEco systems generally fall into three categories, based on maturity and intended use:
+
+1. **Research Systems**  
+   Explore new algorithmic ideas and theoretical approaches; prioritize insight over production readiness.
+
+2. **Experimental Systems**  
+   Validate research ideas under realistic constraints (latency, memory, stability) before production deployment.
+
+3. **Production Systems**  
+   Hardened, stable systems with documented APIs, benchmarks, and operational guarantees.
+
+> Not all research systems are intended to become production systems; this separation is intentional.
 
 ---
 
 ## Design Philosophy
 
-All SmartEco systems follow a consistent set of engineering principles:
+All SmartEco systems follow consistent engineering principles:
 
 - **CPU-first by design**  
-  Optimized for real-world hardware, not idealized GPU-heavy environments.
+  Optimized for real-world hardware, not idealized GPU environments.
 
 - **Latency-aware engineering**  
-  Mean latency matters — but so do p95 and p99.
+  Mean latency matters — but p95 and p99 are treated as first-class metrics.
 
 - **Interpretability over opacity**  
-  Systems should explain *why* a decision was made, not just return a score.
+  Systems explain *why* a decision was made, not just return a score.
 
 - **Explicit algorithms, not magic abstractions**  
-  Control, debuggability, and transparency are first-class concerns.
+  Predictable behavior, debuggability, and transparency are prioritized.
 
 - **Honest trade-offs**  
-  No system is perfect. Limitations and design decisions are documented clearly.
+  Limitations and design decisions are documented clearly.
+
+---
+
+## Shared Infrastructure and Ideas
+
+While systems are independent, SmartEco provides shared concepts and tooling:
+
+- Consistent evaluation practices  
+- Shared performance metrics (latency, tail behavior, stability)  
+- Reusable algorithmic components (distance computation, feature weighting, pruning)  
+- Common expectations around transparency and debuggability  
+
+This foundation allows successful ideas to migrate between systems without forcing premature unification.
+
+---
+
+## Evolution and Progression
+
+Ideas in SmartEco typically follow this path:
+
+1. **Research systems** – experimentation and exploration  
+2. **Experimental systems** – validation under realistic constraints  
+3. **Production systems** – hardened, deployable implementations  
+
+This incremental evolution ensures production systems remain **reliable, understandable, and trustworthy**, even as new ideas emerge.
 
 ---
 
@@ -87,26 +140,28 @@ All SmartEco systems follow a consistent set of engineering principles:
 SmartEco systems are evaluated using **transparent and reproducible methodologies** on real datasets.
 
 Benchmarks focus on:
-- Inference latency (mean and p95)  
-- Stability under load  
+
+- Inference latency (mean, p95, p99)  
+- Stability under realistic load  
 - Accuracy and recall trade-offs  
 
-Detailed benchmark results and evaluation methodology are available in the benchmarks section.
+Detailed benchmark results, evaluation scripts, and methodology are available in the respective system documentation.
 
 ---
 
-## Who Is This For?
+## Who Should Use SmartEco?
 
 SmartEco is built for:
-- Engineers deploying models into real services  
+
+- Engineers deploying models in real services  
 - Teams operating under latency and infrastructure constraints  
 - Practitioners who value explainability and system behavior over black-box performance  
 
-If your models need to run reliably on CPUs, meet latency guarantees, and remain understandable — SmartEco is designed for you.
+If your models must run reliably on CPUs, meet latency guarantees, and remain interpretable — SmartEco is designed for you.
 
 ---
 
-## Get Started
+## Getting Started
 
 - Explore **SmartKNN** and its documentation  
 - Review **SmartML** benchmarks and evaluation workflows  

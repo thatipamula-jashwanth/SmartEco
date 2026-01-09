@@ -42,16 +42,12 @@ This release introduces a fully optimized, scalable system supporting both **cla
   - ANN backend for medium and large datasets
   - Automatic fallback to brute-force if ANN quality checks fail
 
----
-
 #### Core Capabilities
 - Full support for **classification and regression**
 - **Distance-weighted voting** for classification
 - **Distance-weighted local regression** for regression
 - **Feature masking** via weight thresholding
 - Robust internal handling of **NaN / Inf values**
-
----
 
 #### Evaluation and Reporting
 - Unified automatic evaluation engine
@@ -100,8 +96,6 @@ This release introduces a fully optimized, scalable system supporting both **cla
 
 This release focused on **stability and correctness**.
 
----
-
 ### Changes
 
 - **Classification temporarily disabled** due to correctness concerns
@@ -109,8 +103,6 @@ This release focused on **stability and correctness**.
   - `alpha`
   - `beta`
   - `gamma`
-
----
 
 ### Notes
 
@@ -126,8 +118,6 @@ This release focused on **stability and correctness**.
 
 This was the first public release introducing the core ideas behind SmartKNN.
 
----
-
 ### Core Features
 
 - Automatic **feature weight learning**
@@ -139,16 +129,12 @@ This was the first public release introducing the core ideas behind SmartKNN.
 - **Feature masking** via weight thresholding
 - Pure **Python + NumPy** implementation
 
----
-
 ### Design Characteristics
 
 - Accuracy-first approach
 - Not fully vectorized
 - No ANN or GPU support
 - Limited scalability for large datasets
-
----
 
 ### Known Issues
 

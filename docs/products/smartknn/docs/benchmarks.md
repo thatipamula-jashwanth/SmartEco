@@ -53,10 +53,10 @@ The table below highlights representative results across selected datasets and w
 > **Note:** Results are indicative rather than exhaustive. Performance varies with dataset size, dimensionality, feature structure, and hardware characteristics.
 
 | Model       | Accuracy / F1 | Mean Latency      | p95 Latency        |
-|-------------|---------------|-------------------|--------------------|
-| SmartKNN    | Competitive   | Sub-millisecond   | Stable and bounded |
-| Classic KNN | Comparable    | Higher            | Less predictable   |
-| GBM Models  | Higher        | Variable          | Higher tail latency|
+|-------------|---------------|------------------|-------------------|
+| SmartKNN    | Competitive   | Sub-millisecond  | Stable and bounded|
+| Classic KNN | Comparable    | Higher           | Less predictable  |
+| GBM Models  | Higher        | Variable         | Higher tail latency|
 
 Detailed per-dataset results and raw measurements are available in the full benchmark logs.
 
