@@ -48,6 +48,10 @@ nav:
   - Home: index.md
   - Ecosystem: ecosystem.md
 
+  - Benchmarks:
+      - Classification: products/Benchmarks/Classification.md
+      - Regression: products/Benchmarks/Regression.md
+
   - SmartKNN:
       - Overview: products/smartknn/docs/index.md
       - Design Goals: products/smartknn/docs/design-goals.md
@@ -55,7 +59,6 @@ nav:
       - Architecture: products/smartknn/docs/architecture.md
       - Algorithm Overview: products/smartknn/docs/algorithm-overview.md
       - Feature Weights: products/smartknn/docs/feature-weight-learning.md
-      - Feature Pruning: products/smartknn/docs/feature-pruning.md
       - Distance Engine: products/smartknn/docs/distance-engine.md
       - Backend Strategy: products/smartknn/docs/backend-strategy.md
       - Prediction Logic: products/smartknn/docs/prediction-logic.md
