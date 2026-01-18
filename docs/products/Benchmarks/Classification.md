@@ -66,16 +66,6 @@ All benchmarks are evaluated using the **SmartML system** with **default model c
 | Naive Bayes   | **0.015**      | 0.0040                    | 2,254,836              | 0.8466    | 0.6839    | 0.18             | 0.26           |
 | SVC           | 28.044         | 7.121                     | 1,270                  | 0.8983    | 0.6704    | 1.23             | 1.42           |
 
----
-
-#### Key Insights
-
-- **Best Accuracy & Macro-F1:** LightGBM achieves the highest predictive performance (**0.9103 Accuracy, 0.7599 Macro-F1**) under default settings.  
-- **Fastest Training:** Naive Bayes and KNN variants train extremely quickly, though they trade off predictive accuracy.  
-- **High Throughput:** Logistic Regression and CatBoost excel at batch throughput, making them efficient for large-scale scoring.  
-- **Low Single-Inference Latency:** SmartKNN delivers the **lowest per-sample latency** (0.17 ms mean, 0.20 ms P95), ideal for real-time predictions despite higher training time.  
-- **Tree Ensembles:** Random Forest and Extra Trees perform well in accuracy but are slower for both training and batch inference, reflecting their computational overhead.  
-- **SVC:** Achieves decent accuracy but is prohibitively slow for both training and inference at this scale.  
 
 ---
 
@@ -102,18 +92,6 @@ All benchmarks are evaluated using the **SmartML system** with **default model c
 | KNN           | 0.069          | 1.669                        | 4,788                  | 0.8105    | 0.5256    | 2.06             | 2.46           |
 | Naive Bayes   | **0.010**      | 0.0019                       | 4,151,311              | 0.8153    | 0.4851    | 0.22             | 0.32           |
 | SVC           | 61.116         | 5.805                        | 1,376                  | 0.8324    | 0.4594    | 1.25             | 1.65           |
-
----
-
-#### Key Insights
-
-- **Highest Accuracy:** LightGBM leads with 0.8362 Accuracy, while XGBoost has the **best Macro-F1** (0.5347), showing the effect of class imbalance.  
-- **Fastest Training:** Naive Bayes and KNN train extremely quickly; Logistic Regression also trains efficiently.  
-- **High Throughput:** Logistic Regression and CatBoost excel in batch throughput, making them suitable for large-scale scoring.  
-- **Low Single-Inference Latency:** SmartKNN has the **lowest per-sample latency** (0.15 ms mean, 0.18 ms P95), ideal for real-time predictions despite slower training.  
-- **Tree Ensembles:** Random Forest and Extra Trees maintain competitive Macro-F1 but are slower for training and batch inference.  
-- **SVC:** Again, accuracy is decent but training and inference times are prohibitively high.  
-
 
 
 ---
@@ -144,17 +122,6 @@ All benchmarks are evaluated using the **SmartML system** with **default model c
 
 ---
 
-#### Key Insights
-
-- **Top Accuracy & Macro-F1:** LightGBM performs best overall (0.8762 Accuracy, 0.8189 Macro-F1), followed closely by CatBoost and XGBoost.  
-- **Fastest Training:** Naive Bayes and KNN train extremely quickly; Logistic Regression also trains efficiently.  
-- **High Throughput:** Logistic Regression achieves the **highest batch throughput** (≈2.59M samples/s), ideal for bulk scoring.  
-- **Low Single-Inference Latency:** SmartKNN has the **lowest per-sample latency** (0.18 ms mean, 0.22 ms P95), making it suitable for real-time prediction.  
-- **Tree Ensembles:** Random Forest and Extra Trees maintain strong Macro-F1 but are slower for both training and batch inference.  
-- **SVC:** Performs decently in accuracy but is extremely slow in training and batch inference, limiting practical usability.  
-
----
-
 ### 4. Credit Card (285K × 31)
 - **Type:** Highly imbalanced fraud detection task  
 - **Features:** Mix of numerical and categorical features, high skew in target  
@@ -176,17 +143,6 @@ All benchmarks are evaluated using the **SmartML system** with **default model c
 | Logistic Reg. | 2.575          | **0.0171**                  | **3,328,539**          | 0.99916    | 0.8619    | 0.39            | 0.50           |
 | Naive Bayes   | **0.085**      | 0.0185                      | 3,074,959              | 0.97639    | 0.5489    | 0.17            | 0.19           |
 | LightGBM      | 2.543          | 0.1132                      | 503,029                | 0.99252    | 0.5118    | 1.32            | 1.45           |
-
----
-
-#### Key Insights
-
-- **Top Macro-F1:** Extra Trees and Random Forest lead in predictive quality (0.9425 and 0.9401 Macro-F1), reflecting their strength with minority-class detection.  
-- **Highest Accuracy:** Most models achieve near-perfect accuracy (>99.9%), showing why raw accuracy is **misleading** in imbalanced datasets.  
-- **Fastest Training:** Naive Bayes trains almost instantly; Logistic Regression and CatBoost are also efficient.  
-- **High Throughput:** Logistic Regression and CatBoost handle large batch inference efficiently, ideal for real-time scoring.  
-- **Low Single-Inference Latency:** SmartKNN has **lowest per-sample latency** (0.24 ms mean, 0.28 ms P95), balancing speed with strong Macro-F1.  
-- **Trade-offs:** Tree ensembles achieve highest Macro-F1 but are slower in training and per-sample inference. Logistic Regression provides unmatched throughput at some cost to Macro-F1.  
 
 ---
 
@@ -214,16 +170,6 @@ All benchmarks are evaluated using the **SmartML system** with **default model c
 
 ---
 
-#### Key Insights
-
-- **Top Accuracy & Macro-F1:** Extra Trees and Random Forest lead in predictive performance (~0.9948 Accuracy, 0.9192 Macro-F1), showing their robustness with high-dimensional sparse data.  
-- **Fastest Training:** Naive Bayes trains almost instantly; CatBoost and LightGBM are also reasonably fast.  
-- **High Throughput:** CatBoost and LightGBM achieve high batch throughput, suitable for bulk scoring.  
-- **Low Single-Inference Latency:** SmartKNN delivers **lowest per-sample latency** (0.33 ms mean, 0.44 ms P95), ideal for real-time applications.  
-- **Trade-offs:** Random Forest and Extra Trees achieve the best Macro-F1 but at higher training and single-inference costs. Logistic Regression and Naive Bayes are efficient but slightly lower in Macro-F1.  
-
----
-
 ### 6. KDD98 (Subset) (83K × 478)
 - **Type:** Extremely high-dimensional tabular dataset with strong class imbalance  
 - **Features:** Many redundant or weakly informative features  
@@ -245,18 +191,6 @@ All benchmarks are evaluated using the **SmartML system** with **default model c
 | Random Forest | 37.802         | 0.2801                      | 58,777                 | 0.8790    | 0.4752    | 36.46           | 39.09          |
 | Extra Trees   | 20.899         | 0.3391                      | 48,553                 | 0.8816    | 0.4736    | 36.56           | 39.00          |
 | Naive Bayes   | **0.307**      | 0.0906                      | 181,711                | 0.5937    | 0.4653    | **0.19**        | **0.22**       |
-
----
-
-#### Key Insights
-
-- **Highest Accuracy:** Extra Trees and Random Forest achieve highest raw accuracy (0.8816 and 0.8790), but Macro-F1 reveals true performance on minority classes is limited.  
-- **Top Macro-F1:** CatBoost leads slightly in Macro-F1 (0.5109), showing better balance for rare-class detection.  
-- **Fastest Training:** Naive Bayes is extremely fast; Logistic Regression also trains efficiently.  
-- **Throughput Leaders:** CatBoost achieves high batch throughput, ideal for large-scale scoring.  
-- **Low Single-Inference Latency:** Naive Bayes and SmartKNN provide lowest per-sample latency.  
-- **Trade-offs:** Tree ensembles give high accuracy but are slower for both training and single inference; CatBoost balances throughput, accuracy, and Macro-F1 well.  
-
 
 ---
 
@@ -284,16 +218,6 @@ All benchmarks are evaluated using the **SmartML system** with **default model c
 
 ---
 
-#### Key Insights
-
-- **Top Accuracy & Macro-F1:** Random Forest and Extra Trees dominate (0.9543 and 0.9256), confirming tree ensembles excel at multi-class tabular tasks.  
-- **Low Latency Single-Inference:** SmartKNN delivers **lowest per-sample latency** (0.38 ms mean, 0.45 ms P95) despite slower training.  
-- **High Throughput:** Logistic Regression and CatBoost achieve very high batch throughput, but predictive quality suffers.  
-- **Linear Models:** Logistic Regression and Naive Bayes are efficient but underperform in accuracy and Macro-F1.  
-- **Trade-offs:** Tree ensembles achieve top predictive performance at higher training and inference costs; SmartKNN balances latency and strong Macro-F1.  
-
----
-
 ### 8. Criteo Uplift (Balanced) (1.37M × 14)
 - **Type:** Large-scale binary classification  
 - **Features:** Low-dimensional but extremely high sample count  
@@ -317,14 +241,6 @@ All benchmarks are evaluated using the **SmartML system** with **default model c
 | CatBoost      | 41.667         | 0.1993                     | 1,371,246              | 0.3659    | 0.1339    | 0.40            | 0.48           |
 
 ---
-### 9. Poker Hand (1M × 11)
-- **Type:** Multi-class classification with deterministic feature patterns  
-- **Features:** Low-dimensional but expressive patterns favor tree-based methods  
-- **Model behavior:** Tree ensembles excel; linear models struggle; SmartKNN achieves very low latency.  
-
-**Why this dataset matters:** Separates **expressive models from linear baselines** under default configurations.
-
----
 
 #### Benchmark Results
 
@@ -338,16 +254,6 @@ All benchmarks are evaluated using the **SmartML system** with **default model c
 | SmartKNN      | 56.156         | 7.558                     | 27,126                 | 0.6276    | 0.6276    | **0.42**        | **0.45**       |
 | Naive Bayes   | **0.150**      | 0.032                     | 6,360,374              | 0.5234    | 0.5108    | 0.20            | 0.36           |
 | Logistic Reg. | 2.437          | **0.023**                  | **8,829,797**          | 0.5175    | 0.4993    | 0.44            | 0.75           |
-
----
-
-#### Key Insights
-
-- **Top Accuracy & Macro-F1:** XGBoost leads (0.8894 Accuracy, 0.8890 Macro-F1), confirming tree-based models excel in deterministic multi-class patterns.  
-- **Fastest Training & Throughput:** Naive Bayes and Logistic Regression are extremely fast, with massive throughput, but low predictive quality.  
-- **Low Single-Inference Latency:** SmartKNN achieves **lowest per-sample latency** (0.42 ms mean, 0.45 ms P95), balancing speed and reasonable performance.  
-- **Linear Models:** Logistic Regression and Naive Bayes fail to capture complex patterns (low Accuracy & Macro-F1).  
-- **Trade-offs:** Tree ensembles dominate in predictive quality but are slower; SmartKNN is a strong choice when **latency is critical**.  
 
 ---
 
@@ -372,16 +278,6 @@ All benchmarks are evaluated using the **SmartML system** with **default model c
 | Extra Trees   | 16.253         | 0.3030                      | 132,018                 | 0.8995    | 0.4735   | 26.45           | 35.72          |
 | Random Forest | 148.571        | 0.2441                      | 163,845                 | 0.8995    | 0.4735   | 25.04           | 26.51          |
 | SmartKNN      | 69.707         | 5.2203                      | 7,662                   | 0.8995    | 0.4735   | 0.49            | 0.55           |
-
----
-
-#### Key Insights
-
-- **Predictive Equality:** All models achieve the **same Accuracy (0.8995)** and Macro-F1 (0.4735) due to extreme class imbalance.  
-- **Fastest Training:** Naive Bayes and Logistic Regression are extremely fast.  
-- **Highest Throughput:** CatBoost leads batch throughput (~1.86M samples/s), making it ideal for large-scale scoring.  
-- **Low Single-Inference Latency:** Naive Bayes and SmartKNN provide lowest per-sample latency.  
-- **Trade-offs:** While predictive performance is identical, **training cost, latency, and throughput** differentiate the models for deployment.  
 
 ---
 

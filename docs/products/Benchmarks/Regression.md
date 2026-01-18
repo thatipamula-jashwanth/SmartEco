@@ -70,16 +70,6 @@ All benchmarks are evaluated using the **SmartML system** with **default model c
 | ElasticNet    | 0.054          | 0.0033            | 10,788        | 3,243,000                    | 0.8489   | 2,402,448     | 0.359           | 0.437           |
 | SVR           | 144.856        | 31.827            | 10,788        | 339                          | 0.3541   | 10,267,090    | 3.595           | 3.733           |
 
----
-
-## Key Insights
-
-- **Top Predictive Performance:** LightGBM achieves the **highest R² (0.9817)** and lowest MSE, confirming its ability to model non-linear patterns efficiently.  
-- **Fastest Training:** Linear, Ridge, Lasso, and ElasticNet are extremely quick to train but underperform in R² and MSE.  
-- **High Throughput:** CatBoost and Ridge provide the highest batch throughput (~2–3M samples/s).  
-- **Low Single-Inference Latency:** SmartKNN delivers **lowest per-sample latency** (0.143 ms mean), making it ideal for **real-time inference**, even with longer training time.  
-- **Tree Ensembles:** Random Forest and Extra Trees achieve strong R² but at much higher training and single-sample inference costs.  
-- **SVR:** Performs poorly on this scale—both extremely slow and low R², reflecting scalability issues with large datasets.  
 
 --- 
 
@@ -110,16 +100,6 @@ All benchmarks are evaluated using the **SmartML system** with **default model c
 | Lasso         | 0.051           | 0.0019            | 8,897         | 4,793,474                     | 0.8946   | 43.329    | 0.482           | 0.975           |
 | ElasticNet    | 0.016           | 0.0019            | 8,897         | 4,761,156                     | 0.7480   | 103.577   | 0.343           | 0.367           |
 
----
-
-## Key Insights
-
-- **Top Predictive Performance:** Extra Trees achieves the **highest R² (0.9803)** and lowest MSE, making it the most accurate model for SARCOS.  
-- **Latency-focused Models:** SmartKNN maintains strong R² (0.9786) with **extremely low single-sample latency** (~0.143 ms), ideal for real-time robotics applications.  
-- **Tree Ensembles:** Random Forest is accurate but expensive in training and single-sample prediction.  
-- **Boosting Models:** XGBoost and LightGBM are very fast in training and batch throughput, with competitive R².  
-- **Linear Models:** Ridge, Linear, Lasso, and ElasticNet provide **high throughput** but struggle with non-linear torque relationships.  
-- **KNN:** Reasonable accuracy but high batch inference time (~0.87 s) due to brute-force nearest-neighbor computations.  
 
 ---
 
@@ -151,19 +131,6 @@ All benchmarks are evaluated using the **SmartML system** with **default model c
 | KNN           | 0.036          | 2.836             | 14,400        | 5,078                         | 0.7632   | 2.961e+09    | 4.118           | 4.379           |
 | SmartKNN      | 18.191         | 0.343             | 14,400        | 41,933                        | 0.7568   | 3.042e+09    | 0.176           | 0.203           |
 
----
-
-## Key Insights
-
-- **Top Predictive Performance (Linear Models):** Ridge, Linear, and Lasso reach **R² ≈ 1.0**, capturing the dataset almost perfectly.  
-- **Tree Ensembles:** CatBoost, XGBoost, and LightGBM maintain **high but slightly lower R²**, with larger MSEs due to outliers.  
-- **Latency vs Accuracy:**  
-  - SmartKNN offers **low single-sample latency (0.176 ms)** but lower R² (~0.757).  
-  - KNN has **high inference cost** for batches (~2.8 s) despite moderate R².  
-- **Randomized Tree Models:** Extra Trees and Random Forest take very long to train, with moderate predictive quality.  
-- **Throughput:** Linear models dominate **batch throughput**, ideal for **real-time forecasting**.
-
----
 
 ---
 
@@ -193,16 +160,6 @@ All benchmarks are evaluated using the **SmartML system** with **default model c
 
 ---
 
-## Key Insights
-
-- **Top Predictive Models:** Lasso, Ridge, and Linear achieve **R² > 0.93**, showing strong linear trends in social media engagement.  
-- **SmartKNN:** Offers **competitive accuracy (R² ~0.926)** but **much slower batch throughput**, making it suitable for **smaller-scale or latency-tolerant use cases**.  
-- **Boosting Models:** LightGBM and XGBoost are moderately accurate but slower in batch throughput, especially for large datasets.  
-- **CatBoost:** Decent performance but significantly higher **single-sample latency** (P95 ~3.7 ms), which could impact **real-time predictions**.  
-- **Throughput vs Accuracy:** Ridge and Linear strike the **best balance** between high accuracy, low latency, and high batch throughput, ideal for **production social media systems**.
-
----
-
 ### 5. California-Environmental-Conditions-Dataset (128K × 19)
 - **Samples:** 128,000  
 - **Features:** 19 (temperature, humidity, air quality, pollution levels, etc.)  
@@ -227,17 +184,6 @@ All benchmarks are evaluated using the **SmartML system** with **default model c
 | Lasso         | 0.031           | 0.010             | 25,625        | 2,635,151                     | -0.00004  | 0.04098   | 0.627           | 3.439           |
 | ElasticNet    | 0.034           | 0.016             | 25,625        | 1,636,454                     | -0.00004  | 0.04098   | 0.607           | 3.432           |
 
----
-
-## Key Insights
-
-- **Top Predictive Models:** XGBoost, LightGBM, and SmartKNN achieve **R² ~0.69–0.73**, indicating moderate predictability of environmental conditions.  
-- **Linear models (Linear & Ridge):** Very fast and high throughput, but low predictive performance (**R² ~0.41**).  
-- **Lasso & ElasticNet:** Fail to capture meaningful patterns (negative R²), possibly due to oversimplification or high regularization.  
-- **SmartKNN:** Balanced performance (**R² ~0.694**) with moderate latency—useful if non-linear feature interactions are important.  
-- **Throughput vs Accuracy:** Boosting methods offer **best trade-off** for medium-scale environmental regression, while linear models dominate **speed-sensitive pipelines**.  
-
----
 
 ---
 
@@ -267,16 +213,6 @@ All benchmarks are evaluated using the **SmartML system** with **default model c
 
 ---
 
-## Key Insights
-
-- **Top Predictive Models:** XGBoost, SmartKNN, Ridge, and Linear achieve **perfect or near-perfect R² ~1.0**, indicating extremely predictable outcomes on this dataset subset.  
-- **Boosting vs KNN:** XGBoost achieves high throughput with minimal training time, while SmartKNN trades speed for the ability to capture complex local patterns.  
-- **CatBoost:** Slightly lower R² (~0.999993), still excellent accuracy.  
-- **Lasso & ElasticNet:** Fail to capture meaningful patterns (negative R²), likely due to over-regularization.  
-- **Throughput vs Accuracy:** Linear and Ridge models dominate speed-sensitive pipelines, while boosting and SmartKNN are better for non-linear patterns in clinical features.  
-
----
-
 ### 7. COVERTYPE
 - **Samples:** 567,000 (subset used: 113,321 per batch)  
 - **Features:** 11 features including elevation, slope, soil type, and hydrological metrics  
@@ -303,15 +239,6 @@ All benchmarks are evaluated using the **SmartML system** with **default model c
 
 ---
 
-## Key Insights
-
-- **Top Predictive Model:** SmartKNN achieves the highest R² (~0.827), showing strong predictive capability on geospatial features.  
-- **Boosting Models:** XGBoost and CatBoost have moderate R² (~0.51–0.58), with CatBoost benefiting from extremely high throughput.  
-- **Linear Models:** Ridge, Linear, Lasso, and ElasticNet perform poorly (R² ~0–0.08), likely due to inability to capture non-linear relationships.  
-- **Trade-offs:** SmartKNN offers best accuracy but at the cost of batch latency; boosting models are faster for large-scale inference but less accurate.  
-
----
-
 ### 8. SGEMM_GPU_kernel_performance
 - **Samples:** 242,000 (subset used: 48,320 per batch)  
 - **Features:** 15 GPU kernel performance metrics including matrix sizes, block dimensions, and computational throughput  
@@ -335,16 +262,6 @@ All benchmarks are evaluated using the **SmartML system** with **default model c
 | Linear        | 0.068           | 0.017             | 48,320        | 2,770,231                      | 0.4025    | 80,236.67  | 0.535           | 3.343           |
 | Lasso         | 0.069           | 0.005             | 48,320        | 10,513,860                     | 0.4024    | 80,248.38  | 0.371           | 0.458           |
 | ElasticNet    | 0.054           | 0.005             | 48,320        | 9,482,767                      | 0.3399    | 88,649.51  | 0.354           | 0.409           |
-
----
-
-## Key Insights
-
-- **Top Predictive Model:** LightGBM achieves the highest R² (~0.990) with very low MSE, making it excellent for predicting GPU kernel performance.  
-- **Boosting Models:** XGBoost is also strong (~0.985 R²), with higher throughput than SmartKNN.  
-- **SmartKNN:** Very accurate (~0.984 R²) but slower for batch inference.  
-- **Linear Models:** Ridge, Linear, Lasso, and ElasticNet fail to capture non-linear interactions, leading to very poor MSE despite high throughput.  
-- **Trade-offs:** Choosing a model depends on whether **accuracy** (LightGBM, XGBoost, SmartKNN) or **inference speed** (CatBoost, linear models) is prioritized.
 
 ---
 
@@ -377,16 +294,6 @@ It tests **model scalability and latency** on social media-sized datasets, where
 
 ---
 
-## Key Insights
-
-- **Top Accuracy Model:** SmartKNN (R² ~0.949) dominates in predictive performance.  
-- **Boosting Models:** XGBoost and LightGBM are strong (~0.88 and ~0.87 R²) with much higher batch throughput.  
-- **CatBoost:** Slightly lower R² than boosting peers but extremely fast in batch inference.  
-- **Linear Models:** Ridge, Linear, Lasso, and ElasticNet fail to capture meaningful patterns in this dataset (R² ≈ 0 or very low), though throughput is high.  
-- **Trade-offs:** Accuracy-focused tasks favor SmartKNN; speed-focused tasks favor boosting or linear models.
-
----
-
 ### 10. Autos
 - **Samples:** 1,000,000 (batch subset: 200,000)  
 - **Features:** 28 features including vehicle specs, engine performance, and sales metadata  
@@ -410,16 +317,6 @@ It tests **model scalability and latency** on social media-sized datasets, where
 | Linear        | 2.270           | 0.099             | 200,000       | 2,027,420                      | 0.4181   | 0.9301   | 0.306           | 0.343           |
 | ElasticNet    | 1.587           | 0.096             | 200,000       | 2,072,844                      | 0.1126   | 1.4183   | 0.376           | 0.479           |
 | Lasso         | 1.399           | 0.092             | 200,000       | 2,183,667                      | ~0       | 1.5983   | 0.398           | 0.633           |
-
----
-
-## Key Insights
-
-- **Top Accuracy:** XGBoost slightly outperforms CatBoost and LightGBM on R².  
-- **Speed vs. Accuracy:** CatBoost has extremely high batch throughput with slightly lower R².  
-- **SmartKNN:** Lower R² (~0.49) and very slow batch throughput; better suited for single-sample prediction focus.  
-- **Linear Models:** Ridge and Linear perform similarly, moderately fast but lower predictive power.  
-- **ElasticNet and Lasso:** Fail to capture meaningful patterns in this large dataset, showing negative or near-zero R².  
 
 ---
 
