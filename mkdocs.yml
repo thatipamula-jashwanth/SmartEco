@@ -9,6 +9,10 @@ edit_uri: edit/main/docs/
 theme:
   name: material
   language: en
+  custom_dir: docs/overrides
+
+  logo: assets/images/logo.png
+  favicon: assets/images/favicon.png
 
   features:
     - navigation.instant
@@ -35,11 +39,6 @@ theme:
 
 plugins:
   - search
-
-extra:
-  meta:
-    - name: google-site-verification
-      content: X0Brwa3ecLdISQ75YpwtnFIhjPI9XOYjnwuIKI3qVwY
 
 extra_css:
   - stylesheets/extra.css
