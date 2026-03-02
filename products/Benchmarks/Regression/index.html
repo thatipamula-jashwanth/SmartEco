@@ -1,0 +1,1880 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="High-performance, interpretable machine learning systems for production">
+      
+      
+      
+        <link rel="canonical" href="https://thatipamula-jashwanth.github.io/SmartEco/products/Benchmarks/Regression/">
+      
+      
+        <link rel="prev" href="../Classification/">
+      
+      
+        <link rel="next" href="../../smartknn/docs/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>Regression - SmartEco</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+  <meta name="google-site-verification"
+        content="X0Brwa3ecLdISQ75YpwtnFIhjPI9XOYjnwuIKI3qVwY" />
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#regression-benchmarks" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="SmartEco" class="md-header__button md-logo" aria-label="SmartEco" data-md-component="logo">
+      
+  <img src="../../../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SmartEco
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Regression
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/thatipamula-jashwanth/SmartEco" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    SmartEco
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="SmartEco" class="md-nav__button md-logo" aria-label="SmartEco" data-md-component="logo">
+      
+  <img src="../../../assets/images/logo.png" alt="logo">
+
+    </a>
+    SmartEco
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/thatipamula-jashwanth/SmartEco" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    SmartEco
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Benchmarks
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Benchmarks
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Classification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Classification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Regression
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Regression
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#diamonds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diamonds
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#onlinenewspopularity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OnlineNewsPopularity
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#allstate-claims-severity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Allstate Claims Severity
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#buzz-in-social-media-twitter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Buzz in Social Media (Twitter)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#california-housing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        California Housing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wine-reviews" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wine Reviews
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#california-environmental-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        California Environmental Conditions
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SmartKNN
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    SmartKNN
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smartknn/docs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smartknn/docs/design-goals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design Goals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smartknn/docs/core-concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core Concepts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smartknn/docs/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smartknn/docs/algorithm-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Algorithm Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smartknn/docs/feature-weight-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Feature Weights
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smartknn/docs/distance-engine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Distance Engine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smartknn/docs/backend-strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend Strategy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smartknn/docs/prediction-logic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prediction Logic
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smartknn/docs/benchmarks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Benchmarks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smartknn/docs/sklearn-production/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    sklearn & Production
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smartknn/docs/when-to-use/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    When to Use / Not Use
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smartknn/docs/limitations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Limitations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smartknn/docs/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smartknn/docs/faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smartknn/docs/versioning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Versioning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SmartML
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    SmartML
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smartml/docs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smartml/docs/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smartml/docs/usage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Usage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smartml/docs/encoding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Encoding
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smartml/docs/splitting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Splitting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smartml/docs/benchmarks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Benchmarking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smartml/docs/models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Models
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smartml/docs/limitations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Limitations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../smartml/docs/faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="regression-benchmarks">Regression Benchmarks</h1>
+<p>All models are evaluated under default settings from their respective libraries.</p>
+<ul>
+<li>No hyperparameter tuning.</li>
+<li>Linear models and KNN are scaled for transparency.</li>
+<li>Same preprocessing for all models:</li>
+<li>Unique encoding for categorical features</li>
+<li>No dataset-specific tricks</li>
+<li>Metrics reported are 3-Fold Cross Validation means.</li>
+<li>Latency is measured on CPU.</li>
+</ul>
+<p>Metrics shown:</p>
+<ul>
+<li>RMSE (CV Mean)</li>
+<li>RMSE (Test)</li>
+<li>Single Inference P95 (ms)</li>
+</ul>
+<hr />
+<h2 id="diamonds"><a href="https://www.openml.org/d/42225">Diamonds</a></h2>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>CV RMSE</th>
+<th>Test RMSE</th>
+<th>Single P95 (ms)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SmartKNN</td>
+<td>892.21</td>
+<td>860.76</td>
+<td>0.19</td>
+</tr>
+<tr>
+<td>KNN</td>
+<td>933.65</td>
+<td>897.88</td>
+<td>0.71</td>
+</tr>
+<tr>
+<td>RandomForest</td>
+<td>1153.65</td>
+<td>745.21</td>
+<td>34.46</td>
+</tr>
+<tr>
+<td>DecisionTree</td>
+<td>1392.59</td>
+<td>1164.86</td>
+<td>0.18</td>
+</tr>
+<tr>
+<td>LightGBM</td>
+<td>1216.61</td>
+<td>1191.34</td>
+<td>1.23</td>
+</tr>
+<tr>
+<td>XGBoost</td>
+<td>1339.78</td>
+<td>1238.60</td>
+<td>0.53</td>
+</tr>
+<tr>
+<td>Ridge</td>
+<td>1287.62</td>
+<td>1297.21</td>
+<td>0.12</td>
+</tr>
+<tr>
+<td>CatBoost</td>
+<td>1276.41</td>
+<td>1436.24</td>
+<td>1.19</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="onlinenewspopularity"><a href="https://www.openml.org/d/42724">OnlineNewsPopularity</a></h2>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>CV RMSE</th>
+<th>Test RMSE</th>
+<th>Single P95 (ms)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ridge</td>
+<td>16013.18</td>
+<td>10839.29</td>
+<td>0.19</td>
+</tr>
+<tr>
+<td>CatBoost</td>
+<td>11676.77</td>
+<td>10908.77</td>
+<td>1.29</td>
+</tr>
+<tr>
+<td>LightGBM</td>
+<td>11759.63</td>
+<td>11021.90</td>
+<td>1.14</td>
+</tr>
+<tr>
+<td>RandomForest</td>
+<td>11909.29</td>
+<td>11247.33</td>
+<td>36.10</td>
+</tr>
+<tr>
+<td>SmartKNN</td>
+<td>12560.55</td>
+<td>11879.40</td>
+<td>0.26</td>
+</tr>
+<tr>
+<td>KNN</td>
+<td>12455.76</td>
+<td>11944.82</td>
+<td>2.90</td>
+</tr>
+<tr>
+<td>XGBoost</td>
+<td>12410.22</td>
+<td>13315.14</td>
+<td>0.56</td>
+</tr>
+<tr>
+<td>DecisionTree</td>
+<td>17126.61</td>
+<td>22562.39</td>
+<td>0.16</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="allstate-claims-severity"><a href="https://www.openml.org/d/42571">Allstate Claims Severity</a></h2>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>CV RMSE</th>
+<th>Test RMSE</th>
+<th>Single P95 (ms)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CatBoost</td>
+<td>1918.54</td>
+<td>1846.01</td>
+<td>1.55</td>
+</tr>
+<tr>
+<td>LightGBM</td>
+<td>1936.83</td>
+<td>1869.23</td>
+<td>1.34</td>
+</tr>
+<tr>
+<td>XGBoost</td>
+<td>2325.40</td>
+<td>1866.70</td>
+<td>0.60</td>
+</tr>
+<tr>
+<td>RandomForest</td>
+<td>1989.76</td>
+<td>1897.76</td>
+<td>38.26</td>
+</tr>
+<tr>
+<td>Ridge</td>
+<td>2085.99</td>
+<td>2026.17</td>
+<td>0.23</td>
+</tr>
+<tr>
+<td>SmartKNN</td>
+<td>2227.13</td>
+<td>2141.85</td>
+<td>0.40</td>
+</tr>
+<tr>
+<td>KNN</td>
+<td>2292.37</td>
+<td>2216.83</td>
+<td>19.54</td>
+</tr>
+<tr>
+<td>DecisionTree</td>
+<td>2907.48</td>
+<td>2704.40</td>
+<td>0.15</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="buzz-in-social-media-twitter"><a href="https://www.openml.org/d/4549">Buzz in Social Media (Twitter)</a></h2>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>CV RMSE</th>
+<th>Test RMSE</th>
+<th>Single P95 (ms)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RandomForest</td>
+<td>162.14</td>
+<td>137.73</td>
+<td>37.77</td>
+</tr>
+<tr>
+<td>Ridge</td>
+<td>166.66</td>
+<td>156.38</td>
+<td>0.16</td>
+</tr>
+<tr>
+<td>SmartKNN</td>
+<td>160.30</td>
+<td>166.91</td>
+<td>0.37</td>
+</tr>
+<tr>
+<td>KNN</td>
+<td>163.58</td>
+<td>172.84</td>
+<td>38.89</td>
+</tr>
+<tr>
+<td>DecisionTree</td>
+<td>252.82</td>
+<td>196.36</td>
+<td>0.17</td>
+</tr>
+<tr>
+<td>LightGBM</td>
+<td>187.52</td>
+<td>209.01</td>
+<td>1.20</td>
+</tr>
+<tr>
+<td>CatBoost</td>
+<td>228.11</td>
+<td>246.56</td>
+<td>1.52</td>
+</tr>
+<tr>
+<td>XGBoost</td>
+<td>286.47</td>
+<td>265.39</td>
+<td>0.58</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="california-housing"><a href="https://www.openml.org/d/43939">California Housing</a></h2>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>CV RMSE</th>
+<th>Test RMSE</th>
+<th>Single P95 (ms)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CatBoost</td>
+<td>46494.19</td>
+<td>45589.21</td>
+<td>1.28</td>
+</tr>
+<tr>
+<td>XGBoost</td>
+<td>48866.09</td>
+<td>46888.93</td>
+<td>0.58</td>
+</tr>
+<tr>
+<td>LightGBM</td>
+<td>48476.02</td>
+<td>47651.31</td>
+<td>1.05</td>
+</tr>
+<tr>
+<td>RandomForest</td>
+<td>50266.48</td>
+<td>49046.64</td>
+<td>36.87</td>
+</tr>
+<tr>
+<td>SmartKNN</td>
+<td>61998.65</td>
+<td>61613.37</td>
+<td>0.18</td>
+</tr>
+<tr>
+<td>KNN</td>
+<td>62183.02</td>
+<td>61572.17</td>
+<td>0.65</td>
+</tr>
+<tr>
+<td>DecisionTree</td>
+<td>70126.62</td>
+<td>69915.73</td>
+<td>0.16</td>
+</tr>
+<tr>
+<td>Ridge</td>
+<td>68646.24</td>
+<td>70158.56</td>
+<td>0.11</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="wine-reviews"><a href="https://www.openml.org/d/41275">Wine Reviews</a></h2>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>CV RMSE</th>
+<th>Test RMSE</th>
+<th>Single P95 (ms)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CatBoost</td>
+<td>2.2060</td>
+<td>2.1289</td>
+<td>1.72</td>
+</tr>
+<tr>
+<td>LightGBM</td>
+<td>2.2113</td>
+<td>2.1472</td>
+<td>1.04</td>
+</tr>
+<tr>
+<td>RandomForest</td>
+<td>2.2291</td>
+<td>2.1558</td>
+<td>35.51</td>
+</tr>
+<tr>
+<td>XGBoost</td>
+<td>2.2990</td>
+<td>2.1578</td>
+<td>0.51</td>
+</tr>
+<tr>
+<td>SmartKNN</td>
+<td>2.3285</td>
+<td>2.3331</td>
+<td>0.21</td>
+</tr>
+<tr>
+<td>KNN</td>
+<td>2.3759</td>
+<td>2.3559</td>
+<td>0.69</td>
+</tr>
+<tr>
+<td>Ridge</td>
+<td>2.4561</td>
+<td>2.4344</td>
+<td>0.19</td>
+</tr>
+<tr>
+<td>DecisionTree</td>
+<td>3.1205</td>
+<td>2.8906</td>
+<td>0.15</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="california-environmental-conditions"><a href="https://www.openml.org/d/43606">California Environmental Conditions</a></h2>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>CV RMSE</th>
+<th>Test RMSE</th>
+<th>Single P95 (ms)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RandomForest</td>
+<td>0.1122</td>
+<td>0.1035</td>
+<td>34.35</td>
+</tr>
+<tr>
+<td>XGBoost</td>
+<td>0.1206</td>
+<td>0.1104</td>
+<td>0.56</td>
+</tr>
+<tr>
+<td>CatBoost</td>
+<td>0.1156</td>
+<td>0.1104</td>
+<td>1.16</td>
+</tr>
+<tr>
+<td>SmartKNN</td>
+<td>0.1175</td>
+<td>0.1127</td>
+<td>0.22</td>
+</tr>
+<tr>
+<td>LightGBM</td>
+<td>0.1175</td>
+<td>0.1138</td>
+<td>1.02</td>
+</tr>
+<tr>
+<td>KNN</td>
+<td>0.1203</td>
+<td>0.1190</td>
+<td>3.71</td>
+</tr>
+<tr>
+<td>DecisionTree</td>
+<td>0.1593</td>
+<td>0.1485</td>
+<td>0.15</td>
+</tr>
+<tr>
+<td>Ridge</td>
+<td>0.1517</td>
+<td>0.1550</td>
+<td>0.18</td>
+</tr>
+</tbody>
+</table>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.top", "search.highlight", "content.code.copy", "toc.integrate", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

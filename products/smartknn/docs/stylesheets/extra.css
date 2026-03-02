@@ -1,0 +1,45 @@
+/* Constrain content width (docs feel premium) */
+.md-content {
+  max-width: 1120px;
+}
+
+/* Better reading rhythm */
+.md-typeset {
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* Stronger, cleaner headings */
+.md-typeset h1 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.md-typeset h2 {
+  margin-top: 2.4rem;
+  font-weight: 600;
+}
+
+/* Softer sidebar (light mode) */
+.md-sidebar {
+  background: linear-gradient(
+    to bottom,
+    #f8fafc,
+    #f1f5f9
+  );
+}
+
+/* Sidebar (dark mode) */
+[data-md-color-scheme="slate"] .md-sidebar {
+  background: #0f172a;
+}
+
+/* Code blocks feel less boxy */
+.md-typeset pre {
+  border-radius: 8px;
+}
+
+/* Tables feel cleaner */
+.md-typeset table:not([class]) {
+  font-size: 0.9rem;
+}
