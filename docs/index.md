@@ -38,7 +38,7 @@ SmartEco exists to address these realities by providing **algorithm-centric syst
 SmartEco is not a single model or library.  
 It is a growing collection of **purpose-built machine learning systems**, each designed around clear engineering constraints.
 
-### SmartKNN — Production System
+### SmartKNN 
 
 **SmartKNN** is a modern nearest-neighbors engine designed for **fast, transparent, CPU-first inference**.
 
@@ -58,7 +58,7 @@ It serves as the reference production system within SmartEco.
 
 ---
 
-### SmartML — Experimental / Infrastructure System
+### SmartML - Experimental / Infrastructure System
 
 **SmartML** is a benchmarking and inspection toolkit within SmartEco.
 

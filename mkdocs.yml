@@ -45,7 +45,6 @@ extra_css:
 
 nav:
   - Home: index.md
-  - Ecosystem: ecosystem.md
 
   - Benchmarks:
       - Classification: products/Benchmarks/Classification.md
